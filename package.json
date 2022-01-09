@@ -1,0 +1,14 @@
+{
+  "name": "buscador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "\t"
+  },
+  "author": "Cecilia RR",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.47.0"
+  }
+}
