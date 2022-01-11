@@ -126,7 +126,7 @@ main {
 .tarjetas-categoria {
     @include categoria()
 }
-.tarjetas-celulares{
+.tarj{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

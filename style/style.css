@@ -91,7 +91,7 @@ main {
   font-family: "Work Sans", sans-serif;
 }
 
-.tarjetas-celulares {
+.tarj {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,5 +118,7 @@ h2 {
   justify-content: space-around;
   height: 40%;
 }
+
+
 
 /*# sourceMappingURL=style.css.map */
