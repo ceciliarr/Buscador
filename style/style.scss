@@ -5,9 +5,11 @@
     color: black;
     width: auto;
 }
-body{
-    padding: 25px;
-}
+
+/* componentes */
+
+$padding-principal: 10px;
+$padding-secundario: 20px;
 
 
 /* variables color */
@@ -20,62 +22,80 @@ $color-tipografia-secundario: #757575;
 /* variables tipografia */
 $tipografia-principal: "Cormorant Garamond", serif;
 $tipografia-secundaria: Verdana, Geneva, Tahoma, sans-serif;
-$tipografia-terciaria: 'Exo', sans-serif;
+$tipografia-terciaria: 'Work Sans', sans-serif;;
+$tipografia-tarjetas: 'Exo', sans-serif;
 
 @mixin categoria() {
-        width: 200px;
-        height: 300px;
-        margin: 10px;
-        padding: 5px;
-        border: 0.5px solid black;
-        font-family: $tipografia-terciaria;
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+    padding: $padding-secundario;
+    border: 0.5px solid $color-fondo-secundario;
+    font-family: $tipografia-terciaria;
+}
+@mixin imagen{ 
+    height: 60%;
+    display: flex;
+    justify-content: center;
 }
 
-.tarjetas-categoria {
-    @include categoria()
+@mixin informacion{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    height: 40%;
 }
+
+/* ---------- HEADER ---------- */
 
 header {
-    display: flex;
+    padding: $padding-principal;
     position: fixed;
-  width: 100%;
-  height: 20%;
-  background-color: $color-fondo;
-  /* box-shadow: 10px 12px 23px -19px rgba(0,0,0,0.96); */
+    width: 100%;
+    height: 25%;
+    background-color: $color-fondo;
+    box-shadow: 10px 12px 23px -19px rgba(0,0,0,0.96);
+}
 
-  }
+.encabezado {
+    display: flex;
+    margin-bottom: 20px;
+}
   
-  h1 {
+h1 {
     font-size: 80px;
     margin: 0px;
     flex-grow: 2;
     text-align: center;
     font-family: $tipografia-principal;
-  }
-  #buscador {
+}
+
+form {
+    margin-top: 20px;
+    position: absolute;
+}
+
+#buscador {
     border: none;
-    border-bottom: $tipografia-secundaria 1px solid;
+    border-bottom: $color-tipografia-secundario 1px solid;
     font-family: $tipografia-principal;
     color: $tipografia-secundaria;
     font-size: 30px;
-    padding: 10px;
-  }
-  .fa-search {
+    padding: $padding-principal;
+}
+
+.fa-search {
     color: #a09e9e;
     font-size: 25px;
     position: absolute;
     right: 5%;
     top: 30%;
-  }
+}
   
-  form {
-    margin-top: 20px;
-    position: absolute;
-  }
-  
+/* --NAV-- */
 
-  nav {
-    margin-top: 10%;
+nav {
     background-color: $color-fondo-secundario;
     height: 5vh;
     margin-left: 5%;
@@ -83,12 +103,45 @@ header {
     font-family: $tipografia-secundaria;
     font-weight: 200;
     font-size: 12px;
-  }
-  ul {
+}
+
+ul {
     display: flex;
     list-style: none;
     height: 100%;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;  
+}
+
+  /* -----------MAIN----------- */
+
+main {
+    padding: $padding-principal;
+}
+
+.tarjetas-por-categoria{
+    padding-top: 15%;
+}
+
+.tarjetas-categoria {
+    @include categoria()
+}
+.tarjetas-celulares{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     
-  }
+}
+h2 {
+    font-family: $tipografia-terciaria;
+    text-align: center;
+    font-size: 36px;
+    margin:5%;
+}
+
+.img-tarjetas{
+    @include imagen()
+}
+.info-tarjetas{
+    @include informacion()
+}

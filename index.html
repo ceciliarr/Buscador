@@ -9,31 +9,58 @@
     <script src="https://kit.fontawesome.com/b213fdae7b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&family=Exo:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&family=Raleway:wght@100&family=Roboto:wght@100&family=Unna&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <form>
-            <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
-            <i class="fas fa-search"></i>
-            
-        </form>
-        <h1>SHOPLINE</h1>
-    </header>
-    <nav class="nav">
-        <ul>
-            <li class="celulares">CELULARES</li>
-            <li class="autos">AUTOS, MOTOS Y OTROS</li>
-            <li class="computacion">COMPUTACION</li>
-            <li class="electrodomesticos">ELECTRODOMESTICOS</li>
-            <li class="belleza">BELLEZA Y CUIDADO PERSONAL</li>
-            <li class="deporte">DEPORTE Y FITNESS</li>
-        </ul>
+        <div class="encabezado">
+            <form>
+                <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
+                <i class="fas fa-search"></i>
+                
+            </form>
+            <h1>SHOPLINE</h1>
+        </div>
         
-    </nav>
+        <nav>
+            <ul>
+                <li class="celulares">CELULARES</li>
+                <li class="autos">VEHICULOS</li>
+                <li class="computacion">COMPUTACION</li>
+                <li class="electrodomesticos">ELECTRODOMESTICOS</li>
+                <li class="belleza">BELLEZA Y CUIDADO PERSONAL</li>
+                <li class="deporte">DEPORTE Y FITNESS</li>
+            </ul>
+            
+        </nav>
+    </header>
+   
     <main>
         <!-- imagen de presentacion -->
         <!-- tarjetas api -->
-        <section class="tarjetas-celulares"></section>
+        <div class="tarjetas-por-categoria">
+            <section class="categoria">
+               <h2>Celulares y Smartphones</h2>
+               <div class="tarjetas-celulares"></div>   
+            </section>
+            <section class="tarjetas-vehiculos">
+                <!--  <h2>Celulares </h2> -->
+             </section>
+            <section class="tarjetas-computacion">
+                <!--  <h2>Celulares </h2> -->
+            </section>
+            <section class="tarjetas-electrodomesticos">
+                <!--  <h2>Celulares </h2> -->
+            </section>
+            <section class="tarjetas-belleza">
+                <!--  <h2>Celulares </h2> -->
+            </section>
+            <section class="tarjetas-deporte">
+                <!--  <h2>Celulares </h2> -->
+            </section>
+
+        </div>
+        
     </main>
 
     <script src="index.js"></script>
