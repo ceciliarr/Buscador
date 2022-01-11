@@ -17,17 +17,21 @@ const navElectrodomesticos = document.querySelector(".electrodomesticos");
 const navBelleza = document.querySelector(".belleza");
 const navDeporte = document.querySelector(".deporte");
 
+const tituloCategoriaCelulares = document.querySelector(".titulo-categoria-celular")
 
 
-/* navCelulares.onclick = () => {
-    console.log("celulares"); */
+navCelulares.onclick = () => {
+    console.log("celulares");   
     fetch("https://api.mercadolibre.com/sites/MLA/search?q=celular")
     .then(res => res.json())
     .then((data) => {
     console.log(data);
     crearTarjeta(data.results)
+    tituloCategoriaCelulares.style.display = "block"
 })    
-//}
+}
+
+
 
 const crearTarjeta = (data) => {
     const tarjetasCelulares = document.querySelector(".tarjetas-celulares");
