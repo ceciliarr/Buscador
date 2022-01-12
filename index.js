@@ -17,6 +17,9 @@ const seccionTodasLasCategorias = document.querySelectorAll(".categoria")
 
 const seccionVehiculos = document.querySelector(".seccion-vehiculos")
 const seccionCelulares = document.querySelector(".seccion-celulares")
+const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
+
+
 
 console.log(seccionTodasLasCategorias);
 
@@ -35,17 +38,28 @@ let ocultarSeccion = () => {
 
 //-----------------Categoria CELULAR---------------
 
-navCelulares.onclick = () => { 
-    fetch("https://api.mercadolibre.com/sites/MLA/search?q=celular")
+
+let categoria = (cate) => {
+    console.log(cate);
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}`)
     .then(res => res.json())
     .then((data) => {
-    crearTarjeta(data.results)
-    tituloCategoriaCelulares.style.display = "block"
+    crearTarjeta(data.results) 
+    tituloCategoriaCelulares.style.display = "block" 
     ocultarSeccion()
     seccionCelulares.style.display = "block"
-
+    tarjetasPorCategoria.style.display = "block"   
+    
 })    
+
 }
+
+const celu = "MLA5725"
+navCelulares.onclick = () => { 
+    categoria(celu)
+}
+
+
 
 const crearTarjeta = (data) => {
     const tarjetasCelulares = document.querySelector(".tarjetas-celulares");
@@ -63,40 +77,19 @@ const crearTarjeta = (data) => {
         `
     }, "")
     tarjetasCelulares.innerHTML = html
+    
 } 
 
 
-//-----------------Categoria AUTO---------------
 
-navVehiculos.onclick = () => { 
-    fetch("https://api.mercadolibre.com/sites/MLA/search?q=vehiculo")
-    .then(res => res.json())
-    .then((data) => {
-    crearTarjetaVehiculos(data.results)
-    tituloCategoriaVehiculos.style.display = "block"
-    ocultarSeccion()
-    seccionVehiculos.style.display = "block"
 
-})    
-}
 
-const crearTarjetaVehiculos = (data) => {
-    const tarjetasVehiculos = document.querySelector(".tarjetas-vehiculos");
-    const html = data.reduce ((acc, curr) => {
-        return acc + `
-            <article class = "tarjetas-categoria">
-                <div class="img-tarjetas">
-                 <img src="${curr.thumbnail}">
-                </div>
-                <div class="info-tarjetas">
-                <h3>${curr.title}</h3>
-                <h4>$ ${curr.price}</h4>
-                </div>
-            </article> 
-        `
-    }, "")
-    tarjetasVehiculos.innerHTML = html
-} 
+
+
+
+
+
+
 
 
 const form = document.querySelector(".form")

@@ -83,7 +83,6 @@ main {
   width: 60%;
   height: 80vh;
   margin: 8% 20%;
-  background-color: blue;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -96,6 +95,8 @@ main {
 
 .tarjetas-por-categoria {
   padding-top: 15%;
+  height: 100vh;
+  display: none;
 }
 
 .tarjetas-categoria {
