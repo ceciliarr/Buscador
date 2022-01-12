@@ -1,13 +1,6 @@
 
 
 
-/* fetch("https://api.mercadolibre.com/sites/MLA/categories")
-.then(res => res.json())
-.then((data) => {
-    console.log(data);
-    crearNav(data)
-})
- */
 
 
 const navCelulares = document.querySelector(".celulares");
@@ -106,4 +99,21 @@ const crearTarjetaVehiculos = (data) => {
 } 
 
 
+const form = document.querySelector(".form")
+const botonBuscar = document.querySelector("#buscador")
 
+
+
+
+const buscarProducto = (producto) => {
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+}
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+    buscarProducto(botonBuscar.value)     
+}
