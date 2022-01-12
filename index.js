@@ -53,7 +53,6 @@ let categoria = (cate) => {
 
 }
 const crearTitulo = (data) => {
-    console.log(data.name);
     tituloSeccionCategoria.innerHTML = `<h2>${data.name}</h2>`
     
 } 
@@ -68,8 +67,8 @@ let tituloCategoria = (cate) => {
 
 
 navCelulares.onclick = () => { 
-    categoria("MLA1459")
-    tituloCategoria("MLA1459")
+    categoria("MLA1051")
+    tituloCategoria("MLA1051")
 }
 
 navVehiculos.onclick = () => { 
@@ -123,25 +122,24 @@ const crearTarjeta = (data) => {
 
 
 
-
-
-
-
-
-
 //------------BUSCADOR-----------
 
 const form = document.querySelector(".form")
 const botonBuscar = document.querySelector("#buscador")
 
 
-
+const crearTituloProducto = (data) => {
+    tituloSeccionCategoria.innerHTML = `<h2>${data}</h2>`
+    
+} 
 
 const buscarProducto = (producto) => {
     fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}`)
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        crearTarjeta(data.results)
+        crearTituloProducto(producto)
     })
 }
 
