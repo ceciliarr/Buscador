@@ -10,13 +10,13 @@ const navElectrodomesticos = document.querySelector(".electrodomesticos");
 const navBelleza = document.querySelector(".belleza");
 const navDeporte = document.querySelector(".deporte");
 
-const tituloCategoriaCelulares = document.querySelector(".titulo-categoria-celular")
+const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
 const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
 
 const seccionTodasLasCategorias = document.querySelectorAll(".categoria")
 
-const seccionVehiculos = document.querySelector(".seccion-vehiculos")
-const seccionCelulares = document.querySelector(".seccion-celulares")
+
+const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
@@ -29,14 +29,14 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    console.log("ocultar");
+    
 }
                                                                      
 
 
 
 
-//-----------------Categoria CELULAR---------------
+//-----------------Categorias de nav ---------------
 
 
 let categoria = (cate) => {
@@ -45,7 +45,6 @@ let categoria = (cate) => {
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results) 
-    tituloCategoriaCelulares.style.display = "block" 
     ocultarSeccion()
     seccionCelulares.style.display = "block"
     tarjetasPorCategoria.style.display = "block"   
@@ -53,16 +52,56 @@ let categoria = (cate) => {
 })    
 
 }
+const crearTitulo = (data) => {
+    console.log(data.name);
+    tituloSeccionCategoria.innerHTML = `<h2>${data.name}</h2>`
+    
+} 
 
-const celu = "MLA5725"
-navCelulares.onclick = () => { 
-    categoria(celu)
+let tituloCategoria = (cate) => {
+    fetch(`https://api.mercadolibre.com/categories/${cate}`)
+    .then(res => res.json())
+    .then((data) => {
+    crearTitulo(data)  
+})
 }
 
 
+navCelulares.onclick = () => { 
+    categoria("MLA1459")
+    tituloCategoria("MLA1459")
+}
+
+navVehiculos.onclick = () => { 
+    categoria("MLA1743")
+    tituloCategoria("MLA1743")
+}
+navComputacion.onclick = () => { 
+    categoria("MLA1648")
+    tituloCategoria("MLA1648")
+}
+navElectrodomesticos.onclick = () => { 
+    categoria("MLA5726")
+    tituloCategoria("MLA5726")
+}
+navBelleza.onclick = () => { 
+    categoria("MLA1246")
+    tituloCategoria("MLA1246")
+}
+navDeporte.onclick = () => { 
+    categoria("MLA1276")
+    tituloCategoria("MLA1276")
+}
+
+
+//https://api.mercadolibre.com/sites/MLA/categories
+
+
+
+// TARJETAS
 
 const crearTarjeta = (data) => {
-    const tarjetasCelulares = document.querySelector(".tarjetas-celulares");
+    const tarjetasCategorias = document.querySelector(".tarj-categorias");
     const html = data.reduce ((acc, curr) => {
         return acc + `
             <article class = "tarjetas-categoria">
@@ -76,7 +115,7 @@ const crearTarjeta = (data) => {
             </article> 
         `
     }, "")
-    tarjetasCelulares.innerHTML = html
+    tarjetasCategorias.innerHTML = html
     
 } 
 
@@ -90,7 +129,7 @@ const crearTarjeta = (data) => {
 
 
 
-
+//------------BUSCADOR-----------
 
 const form = document.querySelector(".form")
 const botonBuscar = document.querySelector("#buscador")
