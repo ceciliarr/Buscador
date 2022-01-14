@@ -162,3 +162,43 @@ h2 {
 .info-tarjetas{
     @include informacion()
 }
+
+.seccion-detalle-producto {
+    padding-top: 20%;
+    height: 100vh;
+    border: 1px solid black;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  
+  .galeria-fotos{
+    background-color: burlywood;
+    width: 20%;
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .galeria {
+    background-color: crimson;
+    margin: 10%;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+  }
+  
+  .foto {
+    background-color: cadetblue;
+    width: 50%;
+    margin: 10px;
+    height: 100%;
+  }
+  
+  .descripcion {
+    background-color: coral;
+    width: 30%;
+    margin: 10px;
+    height: 100%;
+  }

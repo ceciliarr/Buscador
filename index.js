@@ -118,8 +118,6 @@ const crearTarjeta = (data) => {
 
 
 
-
-
 //------------BUSCADOR-----------
 
 const form = document.querySelector(".form")
@@ -147,18 +145,42 @@ form.onsubmit = (e) => {
 
 
 
-
-
 //-----------------TARJETA PRODUCTO---------------
 //https://api.mercadolibre.com/items/MLA1117381011
 
-  const buscarProducto11  = (id) => {
+  
+const buscarProducto11  = (id) => {
     fetch(`https://api.mercadolibre.com/items/${id}`)
     .then(res => res.json())
     .then((data) => {
     console.log(data);  
-})
+    crearTarjetaDetalleProducto(data)
+    })
+    
 } 
+
+const crearTarjetaDetalleProducto = (data) => {
+    const seccionDetalleProducto = document.querySelector(".seccion-detalle-producto");
+    const html = `
+            <article class = "tarjetas-categoria">
+                <div class="img-tarjeta">
+                 <img src="${data.thumbnail}">
+                </div>
+                <div class="tarjeta-detalle">
+                <h3>${data.title}</h3>
+                <h4>$ ${data.price}</h4>
+                </div>
+            </article> 
+        `
+    seccionDetalleProducto.innerHTML = html
+}
+    
+    
+    
+
+
+
+
 
  const clickEnTarjeta = () => {
     const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
@@ -166,6 +188,7 @@ form.onsubmit = (e) => {
         tarjetasCategoria2[i].onclick = () => {
             const id = tarjetasCategoria2[i].dataset.id
             buscarProducto11(id)
+            ocultarSeccion()
       }
     }
   }
