@@ -21,9 +21,6 @@ const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
 
-console.log(seccionTodasLasCategorias);
-
-
 let ocultarSeccion = () => {
     
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
@@ -40,14 +37,14 @@ let ocultarSeccion = () => {
 
 
 let categoria = (cate) => {
-    console.log(cate);
     fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}`)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results) 
     ocultarSeccion()
     seccionCelulares.style.display = "block"
-    tarjetasPorCategoria.style.display = "block"   
+    tarjetasPorCategoria.style.display = "block"  
+    console.log(data.results); 
     
 })    
 
@@ -103,7 +100,7 @@ const crearTarjeta = (data) => {
     const tarjetasCategorias = document.querySelector(".tarj-categorias");
     const html = data.reduce ((acc, curr) => {
         return acc + `
-            <article class = "tarjetas-categoria">
+            <article class = "tarjetas-categoria" data-id="${curr.id}">
                 <div class="img-tarjetas">
                  <img src="${curr.thumbnail}">
                 </div>
@@ -115,6 +112,7 @@ const crearTarjeta = (data) => {
         `
     }, "")
     tarjetasCategorias.innerHTML = html
+    clickEnTarjeta()
     
 } 
 
@@ -137,7 +135,6 @@ const buscarProducto = (producto) => {
     fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         crearTarjeta(data.results)
         crearTituloProducto(producto)
     })
@@ -147,3 +144,30 @@ form.onsubmit = (e) => {
     e.preventDefault();
     buscarProducto(botonBuscar.value)     
 }
+
+
+
+
+
+//-----------------TARJETA PRODUCTO---------------
+//https://api.mercadolibre.com/items/MLA1117381011
+
+  const buscarProducto11  = (id) => {
+    fetch(`https://api.mercadolibre.com/items/${id}`)
+    .then(res => res.json())
+    .then((data) => {
+    console.log(data);  
+})
+} 
+
+ const clickEnTarjeta = () => {
+    const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
+    for (let i = 0; i < tarjetasCategoria2.length; i++) {
+        tarjetasCategoria2[i].onclick = () => {
+            const id = tarjetasCategoria2[i].dataset.id
+            buscarProducto11(id)
+      }
+    }
+  }
+
+ 
