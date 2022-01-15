@@ -155,30 +155,53 @@ const buscarProducto11  = (id) => {
     .then((data) => {
     console.log(data);  
     crearTarjetaDetalleProducto(data)
+    
+    
     })
     
 } 
 
+
+
+const todasLasFotos = (data) => {
+    const galeriaFotos = document.querySelector(".galeria-fotos");
+    const html = data.reduce((acc, curr) => {
+        console.log(curr.url);
+        return acc = acc + `
+            <div class="galeria img-1">
+            <img src="${curr.url}" class="img">
+            </div>
+            `
+    }, "")
+    
+    galeriaFotos.innerHTML = html
+}
+
+
 const crearTarjetaDetalleProducto = (data) => {
-    const seccionDetalleProducto = document.querySelector(".seccion-detalle-producto");
+    const detalleProducto = document.querySelector(".detalle-producto");
     const html = `
-            <article class = "tarjetas-categoria">
-                <div class="img-tarjeta">
-                 <img src="${data.thumbnail}">
-                </div>
-                <div class="tarjeta-detalle">
+        <div class="seccion-detalle-producto">
+        
+            <div class="galeria-fotos"></div>
+
+            <div class="foto">
+                <img src="${data.pictures[0].url}" class="img">
+            </div>
+            <div class="descripcion">
                 <h3>${data.title}</h3>
                 <h4>$ ${data.price}</h4>
-                </div>
-            </article> 
+            </div>
+        </div>
+            
+           
         `
-    seccionDetalleProducto.innerHTML = html
+    detalleProducto.style.display = "block"
+    detalleProducto.innerHTML = html
+    todasLasFotos(data.pictures)
 }
     
     
-    
-
-
 
 
 
@@ -189,6 +212,7 @@ const crearTarjetaDetalleProducto = (data) => {
             const id = tarjetasCategoria2[i].dataset.id
             buscarProducto11(id)
             ocultarSeccion()
+            
       }
     }
   }
