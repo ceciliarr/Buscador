@@ -177,9 +177,17 @@ const todasLasFotos = (data) => {
     }, "")
     
     galeriaFotos.innerHTML = html
+    const fotosDeGaleria = document.querySelectorAll(".galeria")
+    const imagenAgrandada = document.querySelector(".foto")
+    for (let i = 0; i < fotosDeGaleria.length; i++) {
+        fotosDeGaleria[i].onclick = () => {
+            imagenAgrandada.innerHTML = `
+            <img src="${data[i].url}" class="img">
+            `
+            console.log(data[i].url);
+      }
+    }
 }
-
-
 
 
 const crearTarjetaDetalleProducto = (data) => {
@@ -190,7 +198,7 @@ const crearTarjetaDetalleProducto = (data) => {
             <div class="galeria-fotos"></div>
 
             <div class="foto">
-                <img src="${data.pictures[0].url}" class="img">
+                
             </div>
             <div class="descripcion">
                 <h3 class="descripcion22">${data.title}</h3>
@@ -208,6 +216,7 @@ const crearTarjetaDetalleProducto = (data) => {
     detalleProducto.style.display = "block"
     detalleProducto.innerHTML = html
     todasLasFotos(data.pictures)
+    
 }
     
     
