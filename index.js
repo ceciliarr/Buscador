@@ -162,6 +162,8 @@ const buscarProducto11  = (id) => {
 } 
 
 
+//------------DESCRIPCION-----------
+
 
 const todasLasFotos = (data) => {
     const galeriaFotos = document.querySelector(".galeria-fotos");
@@ -169,13 +171,15 @@ const todasLasFotos = (data) => {
         console.log(curr.url);
         return acc = acc + `
             <div class="galeria img-1">
-            <img src="${curr.url}" class="img">
+            <img src="${curr.url}" class="img" data-id: "${curr.id}">
             </div>
             `
     }, "")
     
     galeriaFotos.innerHTML = html
 }
+
+
 
 
 const crearTarjetaDetalleProducto = (data) => {
@@ -189,8 +193,13 @@ const crearTarjetaDetalleProducto = (data) => {
                 <img src="${data.pictures[0].url}" class="img">
             </div>
             <div class="descripcion">
-                <h3>${data.title}</h3>
-                <h4>$ ${data.price}</h4>
+                <h3 class="descripcion22">${data.title}</h3>
+                <h4 class="descripcion22">$ ${data.price}</h4>
+                <p><i class="far fa-handshake"></i>  ${data.accepts_mercadopago === true ? "Acepta mercado pago" : "no acepta"} </p>
+                <p><i class="fas fa-tag"></i>  ${data.condition === "new"    ? "Estado: Nuevo" : "Estado: Usado"}</p>
+                <p><i class="fas fa-truck"></i>  ${data.shipping.free_shipping === true ? "envio gratis" : "consultar costo de envio"}</p>
+                <p><i class="fas fa-tools"></i>  ${data.warranty}</p>
+                
             </div>
         </div>
             
