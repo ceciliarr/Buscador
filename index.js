@@ -1,8 +1,4 @@
 
-
-
-
-
 const navCelulares = document.querySelector(".celulares");
 const navVehiculos = document.querySelector(".vehiculos");
 const navComputacion = document.querySelector(".computacion");
@@ -92,7 +88,16 @@ navDeporte.onclick = () => {
 
 //https://api.mercadolibre.com/sites/MLA/categories
 
+//---------------VOLVER A PAGINA INICIAL-------
 
+const tituloPrincipal = document.querySelector(".titulo-principal")
+const imagenDeInicio = document.querySelector(".img-principal")
+const volverAPaginaPrincipal = () => {
+    ocultarSeccion()
+    imagenDeInicio.style.display = "block"
+}
+
+tituloPrincipal.onclick = volverAPaginaPrincipal
 
 // TARJETAS
 
