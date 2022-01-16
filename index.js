@@ -5,6 +5,8 @@ const navComputacion = document.querySelector(".computacion");
 const navElectrodomesticos = document.querySelector(".electrodomesticos");
 const navBelleza = document.querySelector(".belleza");
 const navDeporte = document.querySelector(".deporte");
+const navOtrasCategorias = document.querySelector(".otras-categorias");
+
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
 const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
@@ -83,6 +85,10 @@ navBelleza.onclick = () => {
 navDeporte.onclick = () => { 
     categoria("MLA1276")
     tituloCategoria("MLA1276")
+}
+
+navOtrasCategorias.onclick = () => {
+    botonBuscar.focus()
 }
 
 
