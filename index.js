@@ -1,4 +1,4 @@
-
+//NAV
 const navCelulares = document.querySelector(".celulares");
 const navVehiculos = document.querySelector(".vehiculos");
 const navComputacion = document.querySelector(".computacion");
@@ -6,6 +6,13 @@ const navElectrodomesticos = document.querySelector(".electrodomesticos");
 const navBelleza = document.querySelector(".belleza");
 const navDeporte = document.querySelector(".deporte");
 const navOtrasCategorias = document.querySelector(".otras-categorias");
+
+//HEADER
+const tituloPrincipal = document.querySelector(".titulo-principal")
+const imagenDeInicio = document.querySelector(".img-principal")
+const form = document.querySelector(".form")
+const botonBuscar = document.querySelector("#buscador")
+
 
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
@@ -16,6 +23,8 @@ const seccionTodasLasCategorias = document.querySelectorAll(".categoria")
 
 const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
+
+
 
 
 
@@ -64,6 +73,7 @@ let tituloCategoria = (cate) => {
 navCelulares.onclick = () => { 
     categoria("MLA1051")
     tituloCategoria("MLA1051")
+    ordenarEnvioGratis("MLA1051")
 }
 
 navVehiculos.onclick = () => { 
@@ -96,8 +106,7 @@ navOtrasCategorias.onclick = () => {
 
 //---------------VOLVER A PAGINA INICIAL-------
 
-const tituloPrincipal = document.querySelector(".titulo-principal")
-const imagenDeInicio = document.querySelector(".img-principal")
+
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
     imagenDeInicio.style.display = "block"
@@ -131,8 +140,6 @@ const crearTarjeta = (data) => {
 
 //------------BUSCADOR-----------
 
-const form = document.querySelector(".form")
-const botonBuscar = document.querySelector("#buscador")
 
 
 const crearTituloProducto = (data) => {
@@ -246,4 +253,28 @@ const crearTarjetaDetalleProducto = (data) => {
     }
   }
 
- 
+
+//-------------FILTRAR POR ENVIO---------
+
+const inputOrdenar = document.getElementById("envio")
+const envioGratis = document.getElementById("envio-gratis")
+
+
+const ordenarEnvioGratis = (cate) => {
+    
+    //envioGratis.onclick = () => {
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&shipping_cost=free`)
+            .then(res => res.json())
+            .then((data) => { 
+            console.log(data);  
+            crearTarjeta(data.results)
+        
+        
+        })  
+    //}
+
+    
+} 
+
+
+
