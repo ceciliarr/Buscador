@@ -73,7 +73,7 @@ let tituloCategoria = (cate) => {
 navCelulares.onclick = () => { 
     categoria("MLA1051")
     tituloCategoria("MLA1051")
-    ordenarEnvioGratis("MLA1051")
+    
 }
 
 navVehiculos.onclick = () => { 
@@ -222,7 +222,7 @@ const crearTarjetaDetalleProducto = (data) => {
                 <h3 class="descripcion22">${data.title}</h3>
                 <h4 class="descripcion22">$ ${data.price}</h4>
                 <p><i class="far fa-handshake"></i>  ${data.accepts_mercadopago === true ? "Acepta mercado pago" : "no acepta"} </p>
-                <p><i class="fas fa-tag"></i>  ${data.condition === "new"    ? "Estado: Nuevo" : "Estado: Usado"}</p>
+                <p><i class="fas fa-tag"></i>  ${data.condition === "new" ? "Estado: Nuevo" : "Estado: Usado"}</p>
                 <p><i class="fas fa-truck"></i>  ${data.shipping.free_shipping === true ? "envio gratis" : "consultar costo de envio"}</p>
                 <p><i class="fas fa-tools"></i>  ${data.warranty}</p>
                 
@@ -276,5 +276,7 @@ const ordenarEnvioGratis = (cate) => {
     
 } 
 
-
-
+envioGratis.onclick = () => {
+    envioGratis.checked ? ordenarEnvioGratis("MLA1743") : categoria("MLA1743")
+    
+}
