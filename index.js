@@ -133,7 +133,7 @@ const crearTarjeta = (data) => {
     }, "")
     tarjetasCategorias.innerHTML = html
     clickEnTarjeta()
-    
+    /* console.log(data); */
 } 
 
 
@@ -152,6 +152,7 @@ const buscarProducto = (producto) => {
     .then(res => res.json())
     .then(data => {
         crearTarjeta(data.results)
+        console.log(data);
         crearTituloProducto(producto)
     })
 }
@@ -255,28 +256,26 @@ const crearTarjetaDetalleProducto = (data) => {
 
 
 //-------------FILTRAR POR ENVIO---------
-
+/* 
 const inputOrdenar = document.getElementById("envio")
 const envioGratis = document.getElementById("envio-gratis")
 
 
 const ordenarEnvioGratis = (cate) => {
     
-    //envioGratis.onclick = () => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&shipping_cost=free`)
-            .then(res => res.json())
-            .then((data) => { 
-            console.log(data);  
-            crearTarjeta(data.results)
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&shipping_cost=free`)
+        .then(res => res.json())
+        .then((data) => { 
+        console.log(data);  
+        crearTarjeta(data.results)
         
         
-        })  
-    //}
-
-    
+    })  
+      
 } 
-
-envioGratis.onclick = () => {
-    envioGratis.checked ? ordenarEnvioGratis("MLA1743") : categoria("MLA1743")
+const envioGratis1 = () =>{
+envioGratis.onclick = (cate) => {
+    envioGratis.checked ? ordenarEnvioGratis(cate) : categoria(cate)
     
 }
+} */
