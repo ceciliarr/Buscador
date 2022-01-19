@@ -26,7 +26,7 @@ const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
 const header = document.querySelector(".header")
-
+const nav = document.querySelector(".nav")
 
 
 
@@ -114,6 +114,7 @@ const volverAPaginaPrincipal = () => {
     imagenDeInicio.style.display = "block"
     formEncabezado.style.display = "block"
     header.style.height = "25%"
+    nav.style.display = "block"
 }
 
 tituloPrincipal.onclick = volverAPaginaPrincipal
