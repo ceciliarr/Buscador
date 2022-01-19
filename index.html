@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&family=Raleway:wght@100&family=Roboto:wght@100&family=Unna&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="encabezado">
-            <form class="form">
+            <form class="form-encabezado ocultar">
                 <div>
                     <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
                     <i class="fas fa-search"></i>
@@ -28,7 +28,7 @@
             <h1 class="titulo-principal">SHOPLINE</h1>
         </div>
         
-        <nav>
+        <nav class="ocultar">
             <ul>
                 <li class="celulares">CATEGORIAS</li>
                 <li class="vehiculos">VEHICULOS</li>
@@ -43,26 +43,19 @@
     </header>
    
     <main>
-        <div class="img-principal categoria">
+        <div class="img-principal ocultar">
             <img src="img-principal.jpeg" alt="imagen-de-inicio" class="imagen ">
         </div>
         
-        <div class="tarjetas-por-categoria categoria">
-            <section class="categoria seccion-categorias">
+        <div class="tarjetas-por-categoria ocultar">
+            <section class="ocultar seccion-categorias">
                <div class="titulo-seccion-categoria"></div>
-               <!-- <form action="">
-                    <select name="ordenar" id="ordenar">
-                       <option value="mayor-precio" id="mayor-precio">MAYOR PRECIO</option>
-                       <option value="menor-precio" id="menor-precio">MENOR PRECIO</option>
-                   </select>
-
-               </form> -->
                <div class="tarj tarj-categorias"></div>   
             </section>
                         
         </div> 
 
-        <div class="detalle-producto categoria">
+        <div class="detalle-producto ocultar">
             
             
         </div>

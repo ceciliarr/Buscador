@@ -73,7 +73,7 @@ h1 {
     font-family: $tipografia-principal;
 }
 
-form {
+.formEncabezado {
     margin-top: 20px;
     position: absolute;
 }
@@ -136,7 +136,7 @@ main {
   }
 
 .tarjetas-por-categoria{
-    padding-top: 15%;
+    padding-top: 10%;
     height: 100vh;
     display: none;
 }

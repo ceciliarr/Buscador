@@ -10,7 +10,7 @@ const navOtrasCategorias = document.querySelector(".otras-categorias");
 //HEADER
 const tituloPrincipal = document.querySelector(".titulo-principal")
 const imagenDeInicio = document.querySelector(".img-principal")
-const form = document.querySelector(".form")
+const formEncabezado = document.querySelector(".form-encabezado")
 const botonBuscar = document.querySelector("#buscador")
 
 
@@ -18,12 +18,14 @@ const botonBuscar = document.querySelector("#buscador")
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
 const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
 
-const seccionTodasLasCategorias = document.querySelectorAll(".categoria")
+const seccionTodasLasCategorias = document.querySelectorAll(".ocultar")
 
 
 const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
+
+const header = document.querySelector(".header")
 
 
 
@@ -33,7 +35,7 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    
+    header.style.height = "20%"
 }
                                                                      
 
@@ -110,6 +112,8 @@ navOtrasCategorias.onclick = () => {
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
     imagenDeInicio.style.display = "block"
+    formEncabezado.style.display = "block"
+    header.style.height = "25%"
 }
 
 tituloPrincipal.onclick = volverAPaginaPrincipal
@@ -170,7 +174,7 @@ const buscarProducto = (producto, envioGratis) => {
           
 }
 
-form.onsubmit = (e) => {
+formEncabezado.onsubmit = (e) => {
     e.preventDefault();
     buscarProducto(botonBuscar.value, envioGratis.checked)     
 }
