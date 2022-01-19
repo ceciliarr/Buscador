@@ -46,7 +46,7 @@ let ocultarSeccion = () => {
 
 
 let categoria = (cate) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}`)
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&limit=20`)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results) 
@@ -59,8 +59,28 @@ let categoria = (cate) => {
 
 }
 const crearTitulo = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2>${data.name}</h2>`
+    tituloSeccionCategoria.innerHTML = `
+    <h2>${data.name}</h2>
     
+    <form class="form-titulo">
+        
+        <label for="envio-gratis">
+            <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
+        </label>
+        <label for="orden-alfabetico">ORDENAR
+        <select name="orden-alfabetico" id="orden-alfabetico"> 
+            
+            <option value="orden1">A - Z</option>
+            <option value="orden2">Z - A</option>
+                        
+        </select>
+        </label>
+        <div>
+            <i class="fas fa-search"></i>
+        </div>       
+        
+    </form>
+    `
 } 
 
 let tituloCategoria = (cate) => {
@@ -156,7 +176,7 @@ const envioGratis = document.querySelector("#envio-gratis")
 
 const buscarProducto = (producto, envioGratis) => {
 
-    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}`
+    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}&limit=20`
     if (envioGratis === true) {
     url = url + "&shipping_cost=free"
     }

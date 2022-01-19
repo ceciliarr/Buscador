@@ -32,7 +32,7 @@ h1 {
   font-family: "Cormorant Garamond", serif;
 }
 
-form {
+.formEncabezado {
   margin-top: 20px;
   position: absolute;
 }
@@ -69,6 +69,12 @@ ul {
   display: flex;
   list-style: none;
   height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titulo-seccion-categoria {
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
@@ -115,10 +121,21 @@ main {
 }
 
 h2 {
-  font-family: "Work Sans", sans-serif;
-  text-align: center;
+  /* /* font-family: $tipografia-terciaria;
+  text-align: center; */
   font-size: 36px;
   margin: 5%;
+  border: none;
+  border-bottom: #757575 1px solid;
+  font-family: "Cormorant Garamond", serif;
+  color: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.form-titulo {
+  display: flex;
+  justify-content: space-around;
 }
 
 .img-tarjetas {
