@@ -15,8 +15,14 @@
     <header>
         <div class="encabezado">
             <form class="form">
-                <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
-                <i class="fas fa-search"></i>
+                <div>
+                    <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
+                    <i class="fas fa-search"></i>
+                </div>
+                <label for="envio-gratis">
+                    <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
+                </label>       
+                           
                 
             </form>
             <h1 class="titulo-principal">SHOPLINE</h1>
@@ -24,7 +30,7 @@
         
         <nav>
             <ul>
-                <li class="celulares">CELULARES</li>
+                <li class="celulares">CATEGORIAS</li>
                 <li class="vehiculos">VEHICULOS</li>
                 <li class="computacion">COMPUTACION</li>
                 <li class="electrodomesticos">ELECTRODOMESTICOS</li>
@@ -45,10 +51,7 @@
             <section class="categoria seccion-categorias">
                <div class="titulo-seccion-categoria"></div>
                <!-- <form action="">
-                    <label for="envio-gratis">
-                        <input type="checkbox" id="envio-gratis" name="envio-gratis" value="yes">  ENVIO GRATIS 
-                    </label>
-                   <select name="ordenar" id="ordenar">
+                    <select name="ordenar" id="ordenar">
                        <option value="mayor-precio" id="mayor-precio">MAYOR PRECIO</option>
                        <option value="menor-precio" id="menor-precio">MENOR PRECIO</option>
                    </select>

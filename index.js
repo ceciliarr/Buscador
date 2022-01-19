@@ -133,7 +133,7 @@ const crearTarjeta = (data) => {
     }, "")
     tarjetasCategorias.innerHTML = html
     clickEnTarjeta()
-    /* console.log(data); */
+    console.log("HOLA");
 } 
 
 
@@ -147,19 +147,32 @@ const crearTituloProducto = (data) => {
     
 } 
 
-const buscarProducto = (producto) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}`)
-    .then(res => res.json())
-    .then(data => {
+const envioGratis = document.querySelector("#envio-gratis")
+
+const buscarProducto = (producto, envioGratis) => {
+
+    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}`
+    if (envioGratis === true) {
+    url = url + "&shipping_cost=free"
+    }
+
+    fetch(url)
+        .then(res => res.json())
+        .then((data) => { 
+        console.log(data);  
         crearTarjeta(data.results)
-        console.log(data);
         crearTituloProducto(producto)
-    })
+        ocultarSeccion()
+        tarjetasPorCategoria.style.display = "block"
+        seccionCelulares.style.display = "block"
+        /* console.log(envioGratis); */
+    })  
+          
 }
 
 form.onsubmit = (e) => {
     e.preventDefault();
-    buscarProducto(botonBuscar.value)     
+    buscarProducto(botonBuscar.value, envioGratis.checked)     
 }
 
 
@@ -255,27 +268,3 @@ const crearTarjetaDetalleProducto = (data) => {
   }
 
 
-//-------------FILTRAR POR ENVIO---------
-/* 
-const inputOrdenar = document.getElementById("envio")
-const envioGratis = document.getElementById("envio-gratis")
-
-
-const ordenarEnvioGratis = (cate) => {
-    
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&shipping_cost=free`)
-        .then(res => res.json())
-        .then((data) => { 
-        console.log(data);  
-        crearTarjeta(data.results)
-        
-        
-    })  
-      
-} 
-const envioGratis1 = () =>{
-envioGratis.onclick = (cate) => {
-    envioGratis.checked ? ordenarEnvioGratis(cate) : categoria(cate)
-    
-}
-} */
