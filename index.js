@@ -1,4 +1,4 @@
-
+//NAV
 const navCelulares = document.querySelector(".celulares");
 const navVehiculos = document.querySelector(".vehiculos");
 const navComputacion = document.querySelector(".computacion");
@@ -7,15 +7,26 @@ const navBelleza = document.querySelector(".belleza");
 const navDeporte = document.querySelector(".deporte");
 const navOtrasCategorias = document.querySelector(".otras-categorias");
 
+//HEADER
+const tituloPrincipal = document.querySelector(".titulo-principal")
+const imagenDeInicio = document.querySelector(".img-principal")
+const formEncabezado = document.querySelector(".form-encabezado")
+const botonBuscar = document.querySelector("#buscador")
+
+
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
 const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
 
-const seccionTodasLasCategorias = document.querySelectorAll(".categoria")
+const seccionTodasLasCategorias = document.querySelectorAll(".ocultar")
 
 
 const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
+
+
+const header = document.querySelector(".header")
+
 
 
 
@@ -24,7 +35,7 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    
+    header.style.height = "20%"
 }
                                                                      
 
@@ -64,6 +75,7 @@ let tituloCategoria = (cate) => {
 navCelulares.onclick = () => { 
     categoria("MLA1051")
     tituloCategoria("MLA1051")
+    
 }
 
 navVehiculos.onclick = () => { 
@@ -96,11 +108,12 @@ navOtrasCategorias.onclick = () => {
 
 //---------------VOLVER A PAGINA INICIAL-------
 
-const tituloPrincipal = document.querySelector(".titulo-principal")
-const imagenDeInicio = document.querySelector(".img-principal")
+
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
     imagenDeInicio.style.display = "block"
+    formEncabezado.style.display = "block"
+    header.style.height = "25%"
 }
 
 tituloPrincipal.onclick = volverAPaginaPrincipal
@@ -124,15 +137,13 @@ const crearTarjeta = (data) => {
     }, "")
     tarjetasCategorias.innerHTML = html
     clickEnTarjeta()
-    
+    console.log("HOLA");
 } 
 
 
 
 //------------BUSCADOR-----------
 
-const form = document.querySelector(".form")
-const botonBuscar = document.querySelector("#buscador")
 
 
 const crearTituloProducto = (data) => {
@@ -140,18 +151,32 @@ const crearTituloProducto = (data) => {
     
 } 
 
-const buscarProducto = (producto) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}`)
-    .then(res => res.json())
-    .then(data => {
+const envioGratis = document.querySelector("#envio-gratis")
+
+const buscarProducto = (producto, envioGratis) => {
+
+    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}`
+    if (envioGratis === true) {
+    url = url + "&shipping_cost=free"
+    }
+
+    fetch(url)
+        .then(res => res.json())
+        .then((data) => { 
+        console.log(data);  
         crearTarjeta(data.results)
         crearTituloProducto(producto)
-    })
+        ocultarSeccion()
+        tarjetasPorCategoria.style.display = "block"
+        seccionCelulares.style.display = "block"
+        /* console.log(envioGratis); */
+    })  
+          
 }
 
-form.onsubmit = (e) => {
+formEncabezado.onsubmit = (e) => {
     e.preventDefault();
-    buscarProducto(botonBuscar.value)     
+    buscarProducto(botonBuscar.value, envioGratis.checked)     
 }
 
 
@@ -215,7 +240,7 @@ const crearTarjetaDetalleProducto = (data) => {
                 <h3 class="descripcion22">${data.title}</h3>
                 <h4 class="descripcion22">$ ${data.price}</h4>
                 <p><i class="far fa-handshake"></i>  ${data.accepts_mercadopago === true ? "Acepta mercado pago" : "no acepta"} </p>
-                <p><i class="fas fa-tag"></i>  ${data.condition === "new"    ? "Estado: Nuevo" : "Estado: Usado"}</p>
+                <p><i class="fas fa-tag"></i>  ${data.condition === "new" ? "Estado: Nuevo" : "Estado: Usado"}</p>
                 <p><i class="fas fa-truck"></i>  ${data.shipping.free_shipping === true ? "envio gratis" : "consultar costo de envio"}</p>
                 <p><i class="fas fa-tools"></i>  ${data.warranty}</p>
                 
@@ -246,4 +271,4 @@ const crearTarjetaDetalleProducto = (data) => {
     }
   }
 
- 
+
