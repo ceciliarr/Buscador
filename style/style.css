@@ -49,7 +49,7 @@ h1 {
 .fa-search {
   color: #a09e9e;
   font-size: 25px;
-  position: absolute;
+  position: relative;
   right: 5%;
   top: 30%;
 }
@@ -136,6 +136,7 @@ h2 {
 .form-titulo {
   display: flex;
   justify-content: space-around;
+  flex-grow: 2;
 }
 
 .img-tarjetas {
