@@ -119,7 +119,7 @@ botonBuscarConFiltros.onclick = (e) => {
     tituloABuscar = buscadorTitulo.innerHTML;
     e.preventDefault()
     buscarProducto(tituloABuscar, envioGratis2.checked)   
-    console.log(ordenar.value);     
+         
 
 }
 
@@ -159,7 +159,7 @@ const crearTarjeta = (data) => {
     }, "")
     tarjetasCategorias.innerHTML = html
     clickEnTarjeta()
-    console.log("HOLA");
+    
 } 
 
 
@@ -256,7 +256,7 @@ const todasLasFotos = (data) => {
             imagenAgrandada.innerHTML = `
             <img src="${data[i].url}" class="img">
             `
-            console.log(data[i].url);
+            
       }
     }
 }
