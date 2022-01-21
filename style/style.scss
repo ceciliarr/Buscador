@@ -49,6 +49,15 @@ $borde-tarjetas:  0.5px solid $color-fondo-secundario;
     height: 40%;
 }
 
+@mixin botonDeBusqueda {
+    border: none;
+    border-bottom: $color-tipografia-secundario 1px solid;
+    font-family: $tipografia-principal;
+    color: $tipografia-secundaria;
+    font-size: 30px;
+    padding: $padding-principal;
+}
+
 /* ---------- HEADER ---------- */
 
 header {
@@ -79,18 +88,13 @@ h1 {
 }
 
 #buscador {
-    border: none;
-    border-bottom: $color-tipografia-secundario 1px solid;
-    font-family: $tipografia-principal;
-    color: $tipografia-secundaria;
-    font-size: 30px;
-    padding: $padding-principal;
+    @include botonDeBusqueda()
 }
 
 .fa-search {
     color: #a09e9e;
     font-size: 25px;
-    position: absolute;
+    position: relative;
     right: 5%;
     top: 30%;
 }
@@ -114,6 +118,14 @@ ul {
     justify-content: space-around;
     align-items: center;  
 }
+
+.titulo-seccion-categoria {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 
   /* -----------MAIN----------- */
 
@@ -151,11 +163,18 @@ main {
     
 }
 h2 {
-    font-family: $tipografia-terciaria;
-    text-align: center;
+    /* /* font-family: $tipografia-terciaria;
+    text-align: center; */
     font-size: 36px;
     margin:5%;
+    @include botonDeBusqueda()
     
+}
+
+.form-titulo {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 2;
 }
 
 .img-tarjetas{

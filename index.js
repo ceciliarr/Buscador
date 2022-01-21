@@ -46,7 +46,7 @@ let ocultarSeccion = () => {
 
 
 let categoria = (cate) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}`)
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&limit=20`)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results) 
@@ -58,10 +58,11 @@ let categoria = (cate) => {
 })    
 
 }
+
 const crearTitulo = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2>${data.name}</h2>`
-    
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data.name}</h2>`
 } 
+
 
 let tituloCategoria = (cate) => {
     fetch(`https://api.mercadolibre.com/categories/${cate}`)
@@ -70,7 +71,6 @@ let tituloCategoria = (cate) => {
     crearTitulo(data)  
 })
 }
-
 
 navCelulares.onclick = () => { 
     categoria("MLA1051")
@@ -103,10 +103,29 @@ navOtrasCategorias.onclick = () => {
     botonBuscar.focus()
 }
 
-
 //https://api.mercadolibre.com/sites/MLA/categories
 
-//---------------VOLVER A PAGINA INICIAL-------
+
+
+//-----------filtrar busqueda----- ok! 
+
+const ordenar = document.querySelector("#ordenar")
+const botonBuscarConFiltros = document.querySelector(".buscar-filtros")
+
+
+botonBuscarConFiltros.onclick = (e) => {
+    const buscadorTitulo = document.querySelector("#buscador-titulo")
+    const envioGratis2 = document.querySelector("#envio-gratis2")
+    tituloABuscar = buscadorTitulo.innerHTML;
+    e.preventDefault()
+    buscarProducto(tituloABuscar, envioGratis2.checked)   
+         
+
+}
+
+
+
+//---------------VOLVER A PAGINA INICIAL------- ok!
 
 
 const volverAPaginaPrincipal = () => {
@@ -119,7 +138,9 @@ const volverAPaginaPrincipal = () => {
 
 tituloPrincipal.onclick = volverAPaginaPrincipal
 
-// TARJETAS
+
+
+// TARJETAS ok!
 
 const crearTarjeta = (data) => {
     const tarjetasCategorias = document.querySelector(".tarj-categorias");
@@ -138,27 +159,36 @@ const crearTarjeta = (data) => {
     }, "")
     tarjetasCategorias.innerHTML = html
     clickEnTarjeta()
-    console.log("HOLA");
+    
 } 
 
 
 
-//------------BUSCADOR-----------
+//------------BUSCADOR----------- ok!
 
 
 
 const crearTituloProducto = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2>${data}</h2>`
-    
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data}</h2>` 
 } 
 
 const envioGratis = document.querySelector("#envio-gratis")
 
 const buscarProducto = (producto, envioGratis) => {
-
-    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}`
+    
+    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${producto}&limit=20`
+    
     if (envioGratis === true) {
     url = url + "&shipping_cost=free"
+    }
+    if (ordenar.value === "relevant") {
+        url = url + "&sort=relevance";
+    }
+    if (ordenar.value === "price_asc") {
+        url = url + "&sort=price_asc";
+    }
+    if (ordenar.value === "price_desc") {
+        url = url + "&sort=price_desc";
     }
 
     fetch(url)
@@ -170,19 +200,24 @@ const buscarProducto = (producto, envioGratis) => {
         ocultarSeccion()
         tarjetasPorCategoria.style.display = "block"
         seccionCelulares.style.display = "block"
-        /* console.log(envioGratis); */
+        
     })  
           
 }
 
+
+
+
+
 formEncabezado.onsubmit = (e) => {
     e.preventDefault();
-    buscarProducto(botonBuscar.value, envioGratis.checked)     
+    buscarProducto(botonBuscar.value, envioGratis.checked)   
+       
 }
 
 
 
-//-----------------TARJETA PRODUCTO---------------
+//-----------------TARJETA PRODUCTO---------------ok!
 //https://api.mercadolibre.com/items/MLA1117381011
 
   
@@ -199,7 +234,7 @@ const buscarProducto11  = (id) => {
 } 
 
 
-//------------DESCRIPCION-----------
+//------------DESCRIPCION-----------ok!
 
 
 const todasLasFotos = (data) => {
@@ -221,7 +256,7 @@ const todasLasFotos = (data) => {
             imagenAgrandada.innerHTML = `
             <img src="${data[i].url}" class="img">
             `
-            console.log(data[i].url);
+            
       }
     }
 }
@@ -246,9 +281,7 @@ const crearTarjetaDetalleProducto = (data) => {
                 <p><i class="fas fa-tools"></i>  ${data.warranty}</p>
                 
             </div>
-        </div>
-            
-           
+        </div>     
         `
     detalleProducto.style.display = "block"
     detalleProducto.innerHTML = html
@@ -257,9 +290,6 @@ const crearTarjetaDetalleProducto = (data) => {
 }
     
     
-
-
-
  const clickEnTarjeta = () => {
     const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
     for (let i = 0; i < tarjetasCategoria2.length; i++) {
