@@ -156,6 +156,7 @@ h2 {
   border: none;
   font-family: "Exo", sans-serif;
   font-size: 20px;
+  outline: none;
 }
 .form-titulo i {
   padding: 20px;

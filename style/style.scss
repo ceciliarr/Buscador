@@ -199,7 +199,8 @@ h2 {
         select {
             border: none;
             font-family: $tipografia-tarjetas;  
-            font-size: 20px;  
+            font-size: 20px; 
+            outline: none; 
         }
     }
     i{
