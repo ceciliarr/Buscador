@@ -71,6 +71,7 @@ header {
     height: 25%;
     background-color: $color-fondo;
     box-shadow: 10px 12px 23px -19px rgba(0,0,0,0.96);
+    z-index: 1;
 }
 
 .encabezado {
@@ -161,6 +162,10 @@ main {
     @include categoria()
 }
 
+.tarjetas-categoria:hover {
+    transform: translateY(-5px)
+}
+
 /* seccion tarjeta */
 .tarjetas{
     display: flex;
@@ -219,6 +224,7 @@ h2 {
 .detalle-producto {
     padding-top: 15%;
     height: 90vh;
+    
 }
 
 .seccion-detalle-producto {

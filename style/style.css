@@ -17,6 +17,7 @@ header {
   height: 25%;
   background-color: #FFFFFF;
   box-shadow: 10px 12px 23px -19px rgba(0, 0, 0, 0.96);
+  z-index: 1;
 }
 
 .encabezado {
@@ -114,6 +115,10 @@ main {
   box-shadow: 10px 12px 23px -19px #000000;
   border: 0.5px solid #E5E5E5;
   font-family: "Work Sans", sans-serif;
+}
+
+.tarjetas-categoria:hover {
+  transform: translateY(-5px);
 }
 
 /* seccion tarjeta */
