@@ -143,15 +143,17 @@ tituloPrincipal.onclick = volverAPaginaPrincipal
 // TARJETAS ok!
 
 const crearTarjeta = (data) => {
-    const tarjetasCategorias = document.querySelector(".tarj-categorias");
+    const tarjetasCategorias = document.querySelector(".seccion-tarjetas");
+    
     const html = data.reduce ((acc, curr) => {
+        const titulo = curr.title.slice(0,40)
         return acc + `
             <article class = "tarjetas-categoria" data-id="${curr.id}">
                 <div class="img-tarjetas">
                  <img src="${curr.thumbnail}">
                 </div>
                 <div class="info-tarjetas">
-                <h3>${curr.title}</h3>
+                <h3>${titulo}</h3>
                 <h4>$ ${curr.price}</h4>
                 </div>
             </article> 

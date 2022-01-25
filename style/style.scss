@@ -32,6 +32,8 @@ $borde-tarjetas:  0.5px solid $color-fondo-secundario;
     height: 300px;
     margin: 10px;
     padding: $padding-secundario;
+    border-radius: 10px;
+    box-shadow: 10px 12px 23px -19px $color-tipografia;
     border: $borde-tarjetas;
     font-family: $tipografia-terciaria;
 }
@@ -156,15 +158,20 @@ main {
 .tarjetas-categoria {
     @include categoria()
 }
-.tarj{
+
+/* seccion tarjeta */
+.tarjetas{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
 }
+
+
+
+
 h2 {
-    /* /* font-family: $tipografia-terciaria;
-    text-align: center; */
+    
     font-size: 36px;
     margin:5%;
     @include botonDeBusqueda()
@@ -184,10 +191,11 @@ h2 {
     @include informacion()
 }
 
+
+/* ----------DETALLE PRODUCTO----------- */
 .detalle-producto {
     padding-top: 15%;
     height: 90vh;
-   /*  display: none; */
 }
 
 .seccion-detalle-producto {
@@ -269,9 +277,4 @@ h2 {
         
   }
 
-  /*
-$tipografia-principal: "Cormorant Garamond", serif;
-$tipografia-secundaria: Verdana, Geneva, Tahoma, sans-serif;
-$tipografia-terciaria: 'Work Sans', sans-serif;;
-$tipografia-tarjetas: 'Exo', sans-serif;
- */
+ 

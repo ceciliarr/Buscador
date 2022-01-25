@@ -110,19 +110,20 @@ main {
   height: 300px;
   margin: 10px;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 12px 23px -19px #000000;
   border: 0.5px solid #E5E5E5;
   font-family: "Work Sans", sans-serif;
 }
 
-.tarj {
+/* seccion tarjeta */
+.tarjetas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 h2 {
-  /* /* font-family: $tipografia-terciaria;
-  text-align: center; */
   font-size: 36px;
   margin: 5%;
   border: none;
@@ -153,10 +154,10 @@ h2 {
   height: 40%;
 }
 
+/* ----------DETALLE PRODUCTO----------- */
 .detalle-producto {
   padding-top: 15%;
   height: 90vh;
-  /*  display: none; */
 }
 
 .seccion-detalle-producto {
@@ -230,12 +231,5 @@ h2 {
   font-size: 16px;
   margin: 3%;
 }
-
-/*
-$tipografia-principal: "Cormorant Garamond", serif;
-$tipografia-secundaria: Verdana, Geneva, Tahoma, sans-serif;
-$tipografia-terciaria: 'Work Sans', sans-serif;;
-$tipografia-tarjetas: 'Exo', sans-serif;
- */
 
 /*# sourceMappingURL=style.css.map */
