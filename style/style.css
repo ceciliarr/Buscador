@@ -124,14 +124,15 @@ main {
 }
 
 h2 {
-  font-size: 36px;
   margin: 5%;
   border: none;
   border-bottom: #757575 1px solid;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Work Sans", sans-serif;
   color: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   padding: 10px;
+  border: none;
+  letter-spacing: 5px;
 }
 
 .form-titulo {

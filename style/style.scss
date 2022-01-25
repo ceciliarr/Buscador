@@ -26,6 +26,8 @@ $tipografia-terciaria: 'Work Sans', sans-serif;;
 $tipografia-tarjetas: 'Exo', sans-serif;
 
 $borde-tarjetas:  0.5px solid $color-fondo-secundario;
+$borde-boton: $color-tipografia-secundario 1px solid;
+
 
 @mixin categoria() {
     width: 250px;
@@ -51,12 +53,12 @@ $borde-tarjetas:  0.5px solid $color-fondo-secundario;
     height: 40%;
 }
 
-@mixin botonDeBusqueda {
+@mixin botonDeBusqueda ($font-size: 30px, $font-family: $tipografia-principal) {
     border: none;
-    border-bottom: $color-tipografia-secundario 1px solid;
-    font-family: $tipografia-principal;
+    border-bottom: $borde-boton;
+    font-family: $font-family;
     color: $tipografia-secundaria;
-    font-size: 30px;
+    font-size: $font-size;
     padding: $padding-principal;
 }
 
@@ -172,10 +174,11 @@ main {
 
 h2 {
     
-    font-size: 36px;
-    margin:5%;
-    @include botonDeBusqueda()
     
+    margin:5%;
+    @include botonDeBusqueda($font-size: 40px, $font-family: $tipografia-terciaria);
+    border: none;
+    letter-spacing: 5px;
 }
 
 .form-titulo {
