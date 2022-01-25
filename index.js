@@ -264,21 +264,22 @@ const todasLasFotos = (data) => {
 
 const crearTarjetaDetalleProducto = (data) => {
     const detalleProducto = document.querySelector(".detalle-producto");
+    const titulo = data.title.toUpperCase()
     const html = `
         <div class="seccion-detalle-producto">
         
             <div class="galeria-fotos"></div>
 
             <div class="foto">
-                
+            <img src="${data.pictures[0].url}" class="img">
             </div>
-            <div class="descripcion">
-                <h3 class="descripcion22">${data.title}</h3>
-                <h4 class="descripcion22">$ ${data.price}</h4>
-                <p><i class="far fa-handshake"></i>  ${data.accepts_mercadopago === true ? "Acepta mercado pago" : "no acepta"} </p>
+            <div class="seccion-descripcion">
+                <h3 class="titulo-descripcion">${titulo}</h3>
+                <h4 class="descripcion-precio">$ ${data.price}</h4>
+                <p><i class="far fa-handshake"></i>  ${data.accepts_mercadopago === true ? "Acepta Mercado Pago" : "Consultar formas de pago"} </p>
                 <p><i class="fas fa-tag"></i>  ${data.condition === "new" ? "Estado: Nuevo" : "Estado: Usado"}</p>
-                <p><i class="fas fa-truck"></i>  ${data.shipping.free_shipping === true ? "envio gratis" : "consultar costo de envio"}</p>
-                <p><i class="fas fa-tools"></i>  ${data.warranty}</p>
+                <p><i class="fas fa-truck"></i>  ${data.shipping.free_shipping === true ? "Envio Gratis" : "Consultar costo de envio"}</p>
+                <p><i class="fas fa-tools"></i>  ${data.warranty  != null ? data.warranty : "Sin Garantia"} </p>
                 
             </div>
         </div>     
@@ -288,8 +289,9 @@ const crearTarjetaDetalleProducto = (data) => {
     todasLasFotos(data.pictures)
     
 }
-    
-    
+
+
+
  const clickEnTarjeta = () => {
     const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
     for (let i = 0; i < tarjetasCategoria2.length; i++) {
