@@ -149,13 +149,13 @@ h2 {
 }
 .form-titulo label {
   padding: 20px;
-}
-.form-titulo label input {
   font-family: "Exo", sans-serif;
+  font-size: 20px;
 }
 .form-titulo label select {
   border: none;
   font-family: "Exo", sans-serif;
+  font-size: 20px;
 }
 .form-titulo i {
   padding: 20px;

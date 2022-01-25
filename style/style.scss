@@ -194,14 +194,12 @@ h2 {
     border-bottom: $borde-tarjetas;
     label {
         padding: $padding-secundario;
-        input {
-            font-family: $tipografia-tarjetas;
-            
-        }
+        font-family: $tipografia-tarjetas;
+        font-size: 20px;
         select {
             border: none;
-            font-family: $tipografia-tarjetas;
-            
+            font-family: $tipografia-tarjetas;  
+            font-size: 20px;  
         }
     }
     i{
