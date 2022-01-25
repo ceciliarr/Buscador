@@ -16,7 +16,6 @@ const botonBuscar = document.querySelector("#buscador")
 
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
-const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
 
 const seccionTodasLasCategorias = document.querySelectorAll(".ocultar")
 
@@ -60,7 +59,8 @@ let categoria = (cate) => {
 }
 
 const crearTitulo = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data.name}</h2>`
+    const titulo = data.name.toUpperCase()
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>`
 } 
 
 
@@ -143,15 +143,17 @@ tituloPrincipal.onclick = volverAPaginaPrincipal
 // TARJETAS ok!
 
 const crearTarjeta = (data) => {
-    const tarjetasCategorias = document.querySelector(".tarj-categorias");
+    const tarjetasCategorias = document.querySelector(".seccion-tarjetas");
+    
     const html = data.reduce ((acc, curr) => {
+        const titulo = curr.title.slice(0,40)
         return acc + `
             <article class = "tarjetas-categoria" data-id="${curr.id}">
                 <div class="img-tarjetas">
                  <img src="${curr.thumbnail}">
                 </div>
                 <div class="info-tarjetas">
-                <h3>${curr.title}</h3>
+                <h3>${titulo}</h3>
                 <h4>$ ${curr.price}</h4>
                 </div>
             </article> 
@@ -169,7 +171,8 @@ const crearTarjeta = (data) => {
 
 
 const crearTituloProducto = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data}</h2>` 
+    const titulo = data.toUpperCase()
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>` 
 } 
 
 const envioGratis = document.querySelector("#envio-gratis")

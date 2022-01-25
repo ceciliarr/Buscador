@@ -110,33 +110,52 @@ main {
   height: 300px;
   margin: 10px;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 12px 23px -19px #000000;
   border: 0.5px solid #E5E5E5;
   font-family: "Work Sans", sans-serif;
 }
 
-.tarj {
+/* seccion tarjeta */
+.tarjetas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 h2 {
-  /* /* font-family: $tipografia-terciaria;
-  text-align: center; */
-  font-size: 36px;
-  margin: 5%;
   border: none;
   border-bottom: #757575 1px solid;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Work Sans", sans-serif;
   color: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   padding: 10px;
+  border: none;
+  letter-spacing: 5px;
 }
 
 .form-titulo {
+  margin: 3%;
   display: flex;
-  justify-content: space-around;
-  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5px solid #E5E5E5;
+  border-bottom: 0.5px solid #E5E5E5;
+}
+.form-titulo label {
+  padding: 20px;
+}
+.form-titulo label input {
+  font-family: "Exo", sans-serif;
+}
+.form-titulo label select {
+  border: none;
+  font-family: "Exo", sans-serif;
+}
+.form-titulo i {
+  padding: 20px;
+  color: #000000;
+  font-size: 26px;
 }
 
 .img-tarjetas {
@@ -153,10 +172,10 @@ h2 {
   height: 40%;
 }
 
+/* ----------DETALLE PRODUCTO----------- */
 .detalle-producto {
   padding-top: 15%;
   height: 90vh;
-  /*  display: none; */
 }
 
 .seccion-detalle-producto {
@@ -230,12 +249,5 @@ h2 {
   font-size: 16px;
   margin: 3%;
 }
-
-/*
-$tipografia-principal: "Cormorant Garamond", serif;
-$tipografia-secundaria: Verdana, Geneva, Tahoma, sans-serif;
-$tipografia-terciaria: 'Work Sans', sans-serif;;
-$tipografia-tarjetas: 'Exo', sans-serif;
- */
 
 /*# sourceMappingURL=style.css.map */
