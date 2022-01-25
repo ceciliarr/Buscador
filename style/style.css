@@ -124,7 +124,6 @@ main {
 }
 
 h2 {
-  margin: 5%;
   border: none;
   border-bottom: #757575 1px solid;
   font-family: "Work Sans", sans-serif;
@@ -136,9 +135,27 @@ h2 {
 }
 
 .form-titulo {
+  margin: 3%;
   display: flex;
-  justify-content: space-around;
-  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5px solid #E5E5E5;
+  border-bottom: 0.5px solid #E5E5E5;
+}
+.form-titulo label {
+  padding: 20px;
+}
+.form-titulo label input {
+  font-family: "Exo", sans-serif;
+}
+.form-titulo label select {
+  border: none;
+  font-family: "Exo", sans-serif;
+}
+.form-titulo i {
+  padding: 20px;
+  color: #000000;
+  font-size: 26px;
 }
 
 .img-tarjetas {

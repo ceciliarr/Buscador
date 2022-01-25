@@ -174,17 +174,37 @@ main {
 
 h2 {
     
-    
-    margin:5%;
     @include botonDeBusqueda($font-size: 40px, $font-family: $tipografia-terciaria);
     border: none;
     letter-spacing: 5px;
 }
 
 .form-titulo {
+    
+    margin: 3%;
     display: flex;
-    justify-content: space-around;
-    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+    border-top: $borde-tarjetas;
+    border-bottom: $borde-tarjetas;
+    label {
+        padding: $padding-secundario;
+        input {
+            font-family: $tipografia-tarjetas;
+            
+        }
+        select {
+            border: none;
+            font-family: $tipografia-tarjetas;
+            
+        }
+    }
+    i{
+        padding: $padding-secundario;
+        color: $color-tipografia;
+        font-size: 26px;
+    }
+
 }
 
 .img-tarjetas{
