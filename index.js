@@ -16,7 +16,6 @@ const botonBuscar = document.querySelector("#buscador")
 
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
-const tituloCategoriaVehiculos = document.querySelector(".titulo-categoria-vehiculos")
 
 const seccionTodasLasCategorias = document.querySelectorAll(".ocultar")
 
@@ -60,7 +59,8 @@ let categoria = (cate) => {
 }
 
 const crearTitulo = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data.name}</h2>`
+    const titulo = data.name.toUpperCase()
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>`
 } 
 
 
@@ -171,7 +171,8 @@ const crearTarjeta = (data) => {
 
 
 const crearTituloProducto = (data) => {
-    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${data}</h2>` 
+    const titulo = data.toUpperCase()
+    tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>` 
 } 
 
 const envioGratis = document.querySelector("#envio-gratis")
