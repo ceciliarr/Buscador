@@ -21,21 +21,31 @@ header {
 }
 
 .encabezado {
-  display: flex;
   margin-bottom: 20px;
 }
 
 h1 {
   font-size: 80px;
   margin: 0px;
-  flex-grow: 2;
   text-align: center;
   font-family: "Cormorant Garamond", serif;
+  cursor: pointer;
 }
 
-.formEncabezado {
+.form-encabezado {
   margin-top: 20px;
   position: absolute;
+}
+.form-encabezado label {
+  border: none;
+  border-bottom: #757575 1px solid;
+  font-family: "Cormorant Garamond", serif;
+  color: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  position: relative;
+  top: 10px;
 }
 
 #buscador {
@@ -45,6 +55,7 @@ h1 {
   color: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
   padding: 10px;
+  outline: none;
 }
 
 .fa-search {
@@ -72,6 +83,9 @@ ul {
   height: 100%;
   justify-content: space-around;
   align-items: center;
+}
+ul li {
+  cursor: pointer;
 }
 
 .titulo-seccion-categoria {
@@ -115,6 +129,7 @@ main {
   box-shadow: 10px 12px 23px -19px #000000;
   border: 0.5px solid #E5E5E5;
   font-family: "Work Sans", sans-serif;
+  cursor: pointer;
 }
 
 .tarjetas-categoria:hover {
@@ -149,18 +164,20 @@ h2 {
 }
 .form-titulo label {
   padding: 20px;
-}
-.form-titulo label input {
   font-family: "Exo", sans-serif;
+  font-size: 20px;
 }
 .form-titulo label select {
   border: none;
   font-family: "Exo", sans-serif;
+  font-size: 20px;
+  outline: none;
 }
 .form-titulo i {
   padding: 20px;
   color: #000000;
   font-size: 26px;
+  cursor: pointer;
 }
 
 .img-tarjetas {
@@ -208,6 +225,7 @@ h2 {
   justify-content: center;
   display: flex;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .img {
