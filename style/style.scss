@@ -83,6 +83,7 @@ h1 {
     margin: 0px;
     text-align: center;
     font-family: $tipografia-principal;
+    cursor: pointer;
 }
 
 .form-encabezado {
@@ -98,8 +99,9 @@ h1 {
 
 #buscador {
     @include botonDeBusqueda();
+    outline: none;
+    
 }
-
 
 .fa-search {
     color: #a09e9e;
@@ -127,6 +129,9 @@ ul {
     height: 100%;
     justify-content: space-around;
     align-items: center;  
+    li {
+        cursor: pointer;
+    }
 }
 
 .titulo-seccion-categoria {
@@ -164,7 +169,8 @@ main {
 }
 
 .tarjetas-categoria {
-    @include categoria()
+    @include categoria();
+    cursor: pointer;
 }
 
 .tarjetas-categoria:hover {
@@ -212,6 +218,7 @@ h2 {
         padding: $padding-secundario;
         color: $color-tipografia;
         font-size: 26px;
+        cursor: pointer;
     }
 
 }
@@ -258,6 +265,7 @@ h2 {
     justify-content: center;
     display: flex;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .img {
