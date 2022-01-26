@@ -210,14 +210,16 @@ const buscarProducto = (producto, envioGratis) => {
 
 
 
-
+const simboloBusqueda = document.querySelector(".busqueda-inicio")
 
 formEncabezado.onsubmit = (e) => {
     e.preventDefault();
-    buscarProducto(botonBuscar.value, envioGratis.checked)   
-       
+    buscarProducto(botonBuscar.value, envioGratis.checked)      
 }
 
+simboloBusqueda.onclick = () => {
+    buscarProducto(botonBuscar.value, envioGratis.checked)      
+}
 
 
 //-----------------TARJETA PRODUCTO---------------ok!
