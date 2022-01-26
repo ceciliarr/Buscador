@@ -184,6 +184,7 @@ h2 {
   height: 60%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .info-tarjetas {

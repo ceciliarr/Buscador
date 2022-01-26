@@ -43,6 +43,7 @@ $borde-boton: $color-tipografia-secundario 1px solid;
     height: 60%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 @mixin informacion{
