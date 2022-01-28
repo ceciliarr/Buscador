@@ -111,29 +111,7 @@ h1 {
     right: 5%;
     top: 30%;
 }
-  
-/* --NAV-- */
 
-nav {
-    background-color: $color-fondo-secundario;
-    height: 5vh;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-family: $tipografia-secundaria;
-    font-weight: 200;
-    font-size: 12px;
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center;  
-    li {
-        cursor: pointer;
-    }
-}
 
 .titulo-seccion-categoria {
     display: flex;
@@ -154,13 +132,14 @@ main {
 .inicio {
     width: 90%;    
     margin: 10% 5%;
-    overflow: hidden;
+    padding: $padding-secundario;
+  }
+
+  .seccion-tarjetas-categorias {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: lightblue;
-    padding: $padding-secundario;
   }
 
 .tarjetas-iniciales {
