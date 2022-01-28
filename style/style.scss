@@ -69,7 +69,7 @@ header {
     padding: $padding-principal;
     position: fixed;
     width: 100%;
-    height: 25%;
+    height: 20%;
     background-color: $color-fondo;
     box-shadow: 10px 12px 23px -19px rgba(0,0,0,0.96);
     z-index: 1;
@@ -148,25 +148,33 @@ ul {
 main {
     padding: $padding-principal;
     height: 100vh;
+    
 }
 
-.img-principal {
-    width: 60%;
-    height: 80vh;
-    margin: 8% 20%;
+.inicio {
+    width: 90%;    
+    margin: 10% 5%;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-  }
-  .imagen{
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    background-color: lightblue;
+    padding: $padding-secundario;
   }
 
+.tarjetas-iniciales {
+   width: 150px;
+   height: 150px;
+   margin: 5px;
+   padding: $padding-principal; 
+   border: $borde-tarjetas;
+}
 .tarjetas-por-categoria{
     padding-top: 10%;
     height: 100vh;
     display: none;
+    border: $borde-tarjetas;
 }
 
 .tarjetas-categoria {

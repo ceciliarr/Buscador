@@ -14,7 +14,7 @@ header {
   padding: 10px;
   position: fixed;
   width: 100%;
-  height: 25%;
+  height: 20%;
   background-color: #FFFFFF;
   box-shadow: 10px 12px 23px -19px rgba(0, 0, 0, 0.96);
   z-index: 1;
@@ -100,24 +100,31 @@ main {
   height: 100vh;
 }
 
-.img-principal {
-  width: 60%;
-  height: 80vh;
-  margin: 8% 20%;
+.inicio {
+  width: 90%;
+  margin: 10% 5%;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  padding: 20px;
 }
 
-.imagen {
-  width: 100%;
-  height: 100%;
+.tarjetas-iniciales {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  padding: 10px;
+  border: 0.5px solid #E5E5E5;
 }
 
 .tarjetas-por-categoria {
   padding-top: 10%;
   height: 100vh;
   display: none;
+  border: 0.5px solid #E5E5E5;
 }
 
 .tarjetas-categoria {

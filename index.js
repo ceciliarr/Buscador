@@ -9,7 +9,7 @@ const navOtrasCategorias = document.querySelector(".otras-categorias");
 
 //HEADER
 const tituloPrincipal = document.querySelector(".titulo-principal")
-const imagenDeInicio = document.querySelector(".img-principal")
+const inicio = document.querySelector(".inicio")
 const formEncabezado = document.querySelector(".form-encabezado")
 const botonBuscar = document.querySelector("#buscador")
 
@@ -39,13 +39,66 @@ let ocultarSeccion = () => {
                                                                      
 
 
+//https://api.mercadolibre.com/sites/MLA/categories
+
+//cargo la pagina
+const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-categorias")
+
+const crearTarjetaBienvenida = (data) => {
+    
+    const html = data.reduce ((acc, curr) => {
+        return acc + `
+            <div class = "tarjetas-iniciales" data-id="${curr.id}">
+                <h3>${curr.name}</h3>
+            </div>
+        `
+    }, "")
+    seccionTarjetasCategorias.innerHTML = html
+} 
+
+fetch(`https://api.mercadolibre.com/sites/MLA/categories`)
+    .then(res => res.json())
+    .then((data) => {
+    crearTarjetaBienvenida(data)
+    console.log(data); 
+    clickEnTarjetaCategoria()
+    
+})    
+
+const clickEnTarjetaCategoria = () => {
+    const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")
+    for (let i = 0; i < tarjetasCategoriaInicio.length; i++) {
+        console.log("hola");
+        tarjetasCategoriaInicio[i].onclick = () => {
+            console.log(tarjetasCategoriaInicio[i].id);
+            const id = tarjetasCategoriaInicio[i].dataset.id
+            console.log(id);
+            categoria(id)
+            tituloCategoria(id)
+            ocultarSeccion()
+            
+      }
+    }
+}
+
+/* 
+
+ const clickEnTarjeta = () => {
+    const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
+    for (let i = 0; i < tarjetasCategoria2.length; i++) {
+        tarjetasCategoria2[i].onclick = () => {
+            const id = tarjetasCategoria2[i].dataset.id
+            buscarProducto11(id)
+            ocultarSeccion()
+            
+      }
+    }
+  } */
+    
 
 
-//-----------------Categorias de nav ---------------
-
-
-let categoria = (cate) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${cate}&limit=20`)
+let categoria = (id) => {
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results) 
@@ -64,46 +117,27 @@ const crearTitulo = (data) => {
 } 
 
 
-let tituloCategoria = (cate) => {
-    fetch(`https://api.mercadolibre.com/categories/${cate}`)
+let tituloCategoria = (id) => {
+    fetch(`https://api.mercadolibre.com/categories/${id}`)
     .then(res => res.json())
     .then((data) => {
     crearTitulo(data)  
 })
 }
 
-navCelulares.onclick = () => { 
-    categoria("MLA1051")
-    tituloCategoria("MLA1051")
+
+
+
+
+/* 
+const crearImagen = (id) => {
+    fetch(`https://api.mercadolibre.com/categories/${id}`)
+    .then(res => res.json())
+    .then((data) => {
+    return data.picture
     
-}
-
-navVehiculos.onclick = () => { 
-    categoria("MLA1743")
-    tituloCategoria("MLA1743")
-}
-navComputacion.onclick = () => { 
-    categoria("MLA1648")
-    tituloCategoria("MLA1648")
-}
-navElectrodomesticos.onclick = () => { 
-    categoria("MLA5726")
-    tituloCategoria("MLA5726")
-}
-navBelleza.onclick = () => { 
-    categoria("MLA1246")
-    tituloCategoria("MLA1246")
-}
-navDeporte.onclick = () => { 
-    categoria("MLA1276")
-    tituloCategoria("MLA1276")
-}
-
-navOtrasCategorias.onclick = () => {
-    botonBuscar.focus()
-}
-
-//https://api.mercadolibre.com/sites/MLA/categories
+})
+} */
 
 
 
@@ -130,9 +164,8 @@ botonBuscarConFiltros.onclick = (e) => {
 
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
-    imagenDeInicio.style.display = "block"
+    inicio.style.display = "flex"
     formEncabezado.style.display = "block"
-    header.style.height = "25%"
     nav.style.display = "block"
 }
 
