@@ -14,43 +14,42 @@
 <body>
     <header class="header">
         <div class="encabezado">
-            <form class="form-encabezado ocultar">
-                <div>
-                    <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
-                    <i class="fas fa-search busqueda-inicio"></i>
-                </div>
-                <label for="envio-gratis">
-                    <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
-                </label>       
-                           
-                
-            </form>
+            
             <h1 class="titulo-principal">SHOPLINE</h1>
         </div>
-        
-        <nav class="nav ocultar">
-            <ul>
-                <li class="celulares">CELULARES</li>
-                <li class="vehiculos">VEHICULOS</li>
-                <li class="computacion">COMPUTACION</li>
-                <li class="electrodomesticos">ELECTRODOMESTICOS</li>
-                <li class="belleza">BELLEZA Y CUIDADO PERSONAL</li>
-                <li class="deporte">DEPORTE Y FITNESS</li>
-                <li class="otras-categorias">OTRAS CATEGORIAS</li>
-            </ul>
-            
-        </nav>
     </header>
-   
+    
     <main>
-        <div class="img-principal ocultar">
-            <img src="img-principal.jpeg" alt="imagen-de-inicio" class="imagen ">
+        <!-- <div class="loader"><img src="https://acegif.com/wp-content/uploads/loading-95.gif" alt=""></div>
+         -->
+        <div class="inicio ocultar">
+            <form class="form-encabezado ocultar">
+                <div>                    
+                    <input type="text" id="buscador" placeholder="Busqueda por articulo">
+                    <div>
+                        <label for="envio-gratis">
+                            <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
+                        </label>
+                        <i class="fas fa-search busqueda-inicio"></i>
+                    </div>   
+                </div>
+                <div class = "seccion-tarjetas-categorias ">
+                    <select class = "select-inicio" name="tarjetas-iniciales"></select>
+                    <div>
+                        <label for="envio-gratis-categoria">
+                            <input type="checkbox" name="envio-gratis-categoria" id="envio-gratis-categoria">  ENVIO GRATIS 
+                        </label>
+                        <i class="fas fa-search busqueda-categoria"></i>
+                    </div>
+                </div>
+            </form>
         </div>
         
+
+        <!-- TARJETAS DE BUSQUEDA -->
         <div class="tarjetas-por-categoria ocultar">
             <section class="ocultar seccion-categorias">
-                <!--  -->
-               <div class="titulo-seccion-categoria">
+                <div class="titulo-seccion-categoria">
                     
                </div>
                <form class="form-titulo">
@@ -74,7 +73,8 @@
             </section>
                         
         </div> 
-
+        
+        <!-- TARJETA DETALLE PRODUCTO -->
         <div class="detalle-producto ocultar">
             
             
@@ -82,6 +82,7 @@
         
     </main>
 
+      
     <script src="index.js"></script>
 </body>
 </html>
