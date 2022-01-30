@@ -52,7 +52,7 @@ const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-cate
 const selectInicio = document.querySelector(".select-inicio")
 const crearTarjetaBienvenida = (data) => {
     
-    let acc = ""
+    let acc = "<option> Busqueda por Categoria </option>"
     for (let i = 0; i < data.length; i++) {
         acc = acc + `
             <option value="${data[i].id}" data-id="${data[i].id}" class = "tarjetas-iniciales"> ${data[i].name} </option>

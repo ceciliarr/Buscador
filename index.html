@@ -14,17 +14,7 @@
 <body>
     <header class="header">
         <div class="encabezado">
-            <form class="form-encabezado ocultar">
-                <div>
-                    <input type="text" id="buscador" placeholder="¿Qué estas buscando?">
-                    <i class="fas fa-search busqueda-inicio"></i>
-                </div>
-                <label for="envio-gratis">
-                    <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
-                </label>       
-                       
-                
-            </form>
+            
             <h1 class="titulo-principal">SHOPLINE</h1>
         </div>
     </header>
@@ -33,12 +23,25 @@
         <!-- <div class="loader"><img src="https://acegif.com/wp-content/uploads/loading-95.gif" alt=""></div>
          -->
         <div class="inicio ocultar">
-           <section class = "seccion-tarjetas-categorias ">
-            <select class = "select-inicio" name="tarjetas-iniciales" >
-                
-            </select>
-            <i class="fas fa-search busqueda-categoria"></i>
-           </section>
+            <form class="form-encabezado ocultar">
+                <div>
+                    <div>
+                        <input type="text" id="buscador" placeholder="Busqueda por articulo">
+                        <label for="envio-gratis">
+                            <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
+                        </label>
+                    </div>
+                    
+                    <i class="fas fa-search busqueda-inicio"></i>
+                </div>
+                <div class = "seccion-tarjetas-categorias ">
+                    <select class = "select-inicio" name="tarjetas-iniciales" >
+                        
+                    </select>
+                    <i class="fas fa-search busqueda-categoria"></i>
+                </div>
+            </form>
+           
            
         </div>
         
