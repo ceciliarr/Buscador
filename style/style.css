@@ -4,6 +4,12 @@
   box-sizing: border-box;
   color: black;
   width: auto;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
 }
 
 /* componentes */
@@ -13,7 +19,7 @@
 header {
   padding: 10px;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   background-color: #FFFFFF;
   box-shadow: 10px 12px 23px -19px rgba(0, 0, 0, 0.96);
   z-index: 1;
@@ -89,17 +95,26 @@ h1 {
 /* -----------MAIN----------- */
 main {
   padding: 10px;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
-.inicio {
+.img-inicio {
   width: 90vw;
   height: 100vh;
   background-image: url(https://muchosnegociosrentables.com/wp-content/uploads/2020/05/monta-tu-propia-tienda-online.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   margin: 0% 5%;
+}
+
+.inicio {
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  margin: 0% 5%;
   padding: 20px;
+  overflow: hidden;
 }
 .inicio div {
   display: flex;
@@ -320,12 +335,8 @@ h2 {
   height: 100vh;
 }
 
-.nav-responsive {
-  display: none;
-}
-
 @media (max-width: 1900px) {
-  .inicio {
+  .inicio, .img-inicio {
     margin-top: 10%;
   }
 
@@ -334,7 +345,7 @@ h2 {
   }
 }
 @media (max-width: 1100px) {
-  .inicio {
+  .inicio, .img-inicio {
     margin-top: 15%;
   }
 
@@ -352,13 +363,47 @@ h2 {
   }
 }
 @media (max-width: 800px) {
-  .inicio {
-    margin-top: 20%;
+  .img-inicio {
+    margin-top: 25%;
     background-size: contain;
   }
 
   h1 {
     font-size: 60px;
+  }
+
+  .inicio {
+    width: 90vw;
+    height: 20%;
+    margin: 10%;
+  }
+  .inicio form {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+  }
+  .inicio form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-grow: 1;
+  }
+  .inicio form div #buscador {
+    border: none;
+  }
+  .inicio form .seccion-tarjetas-categorias {
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-grow: 1;
+  }
+  .inicio form .seccion-tarjetas-categorias select {
+    border: none;
+  }
+  .inicio form label {
+    display: none;
   }
 }
 @media (max-width: 700px) {
@@ -366,20 +411,43 @@ h2 {
     font-size: 40px;
   }
 
-  .form-encabezado label {
-    display: none;
+  .inicio {
+    margin-top: 5%;
+  }
+
+  #buscador {
+    font-size: 15px;
+  }
+
+  .select-inicio {
+    font-size: 15px;
+  }
+
+  .fas {
+    font-size: 20px;
+  }
+
+  .img-inicio {
+    margin-top: 25%;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 550px) {
+  .img-inicio {
+    margin-top: 50%;
+  }
+
   .inicio {
-    margin-top: 30%;
-    background-size: contain;
+    height: 30vh;
   }
-  .inicio input {
-    width: 100%;
+  .inicio form {
+    margin-top: 10%;
+    height: 50%;
+    flex-direction: column;
   }
-  .inicio select {
-    width: 100%;
+}
+@media (max-width: 400px) {
+  .img-inicio {
+    margin-top: 60%;
   }
 }
 
