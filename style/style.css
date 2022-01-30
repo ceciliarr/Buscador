@@ -407,6 +407,10 @@ h2 {
   }
 }
 @media (max-width: 700px) {
+  .header {
+    height: 10%;
+  }
+
   h1 {
     font-size: 40px;
   }
@@ -430,6 +434,10 @@ h2 {
   .img-inicio {
     margin-top: 25%;
   }
+
+  .titulo-seccion-categoria {
+    margin-top: 10%;
+  }
 }
 @media (max-width: 550px) {
   .img-inicio {
@@ -444,10 +452,40 @@ h2 {
     height: 50%;
     flex-direction: column;
   }
+
+  .form-titulo label {
+    font-size: 15px;
+  }
+  .form-titulo label select {
+    font-size: 15px;
+  }
+  .form-titulo i {
+    font-size: 20px;
+  }
 }
 @media (max-width: 400px) {
   .img-inicio {
     margin-top: 60%;
+  }
+
+  .form-titulo {
+    display: flex;
+    flex-direction: row;
+  }
+  .form-titulo div {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-titulo label {
+    padding: 10px;
+  }
+  .form-titulo label select {
+    padding: 5px;
+  }
+}
+@media (max-width: 1000px) {
+  .titulo-seccion-categoria {
+    margin-top: 5%;
   }
 }
 
