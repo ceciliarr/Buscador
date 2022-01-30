@@ -40,7 +40,7 @@ h1 {
   border: none;
   border-bottom: #757575 1px solid;
   font-family: "Cormorant Garamond", serif;
-  color: Verdana, Geneva, Tahoma, sans-serif;
+  color: #000000;
   font-size: 16px;
   padding: 10px;
   border: none;
@@ -52,7 +52,7 @@ h1 {
   border: none;
   border-bottom: #757575 1px solid;
   font-family: "Cormorant Garamond", serif;
-  color: Verdana, Geneva, Tahoma, sans-serif;
+  color: #000000;
   font-size: 30px;
   padding: 10px;
   outline: none;
@@ -62,7 +62,7 @@ h1 {
   border: none;
   border-bottom: #757575 1px solid;
   font-family: "Cormorant Garamond", serif;
-  color: Verdana, Geneva, Tahoma, sans-serif;
+  color: #000000;
   font-size: 30px;
   padding: 10px;
   outline: none;
@@ -70,10 +70,14 @@ h1 {
 
 .fa-search {
   color: #a09e9e;
-  font-size: 25px;
+  font-size: 30px;
   position: relative;
   right: 5%;
   top: 30%;
+}
+
+.fa-search:hover {
+  color: #000000;
 }
 
 .titulo-seccion-categoria {
@@ -98,10 +102,12 @@ main {
 }
 .inicio div {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .inicio div div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .seccion-tarjetas-categorias {
@@ -109,6 +115,26 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+.seccion-tarjetas-categorias div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+.seccion-tarjetas-categorias div label {
+  border: none;
+  border-bottom: #757575 1px solid;
+  font-family: "Cormorant Garamond", serif;
+  color: #000000;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  position: relative;
+  top: 10px;
+}
+.seccion-tarjetas-categorias div div {
+  display: flex;
 }
 
 .tarjetas-iniciales {
@@ -155,7 +181,7 @@ h2 {
   border: none;
   border-bottom: #757575 1px solid;
   font-family: "Work Sans", sans-serif;
-  color: Verdana, Geneva, Tahoma, sans-serif;
+  color: #000000;
   font-size: 40px;
   padding: 10px;
   border: none;

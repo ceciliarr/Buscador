@@ -58,7 +58,7 @@ $borde-boton: $color-tipografia-secundario 1px solid;
     border: none;
     border-bottom: $borde-boton;
     font-family: $font-family;
-    color: $tipografia-secundaria;
+    color: $color-tipografia;
     font-size: $font-size;
     padding: $padding-principal;
 }
@@ -108,14 +108,19 @@ h1 {
 .select-inicio {
     @include botonDeBusqueda();
     outline: none;
+    
 }
 
 .fa-search {
     color: #a09e9e;
-    font-size: 25px;
+    font-size: 30px;
     position: relative;
     right: 5%;
     top: 30%;
+}
+
+.fa-search:hover {
+    color: $color-tipografia;
 }
 
 
@@ -145,10 +150,11 @@ main {
 
     div {
         display: flex;
-        
+        flex-direction: column;
+        justify-content: space-between;
         div{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
         }
     }
 }
@@ -159,6 +165,23 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        label {
+            @include botonDeBusqueda($font-size: 16px);
+            border: none;
+            position: relative;
+            top: 10px
+        }
+        div{
+            display: flex;
+            
+        }
+    }
+    
   }
 
 .tarjetas-iniciales {

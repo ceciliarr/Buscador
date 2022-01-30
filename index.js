@@ -58,50 +58,36 @@ const crearTarjetaBienvenida = (data) => {
             <option value="${data[i].id}" data-id="${data[i].id}" class = "tarjetas-iniciales"> ${data[i].name} </option>
         `
     }
-    //console.log(acc);
+    
     selectInicio.innerHTML = acc
+    buscarCategoria()
+    
+} 
+const busquedaCategoria = document.querySelector(".busqueda-categoria")
 
+const buscarCategoria = () => {
     busquedaCategoria.onclick = () => {
-        const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")
+        const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")    
         let id = selectInicio.value
-        console.log(tarjetasCategoriaInicio);
         categoria(id)
         tituloCategoria(id)
         ocultarSeccion()
     }
-} 
+}
 
 
-/* if (ordenar.value === "price_desc") {
-        url = url + "&sort=price_desc";
-    } */
-
-const busquedaCategoria = document.querySelector(".busqueda-categoria")
-
-
-
-/* const clickEnTarjetaCategoria = () => {
-    //loader.style.display = "block";
-    const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")
-    
-    for (let i = 0; i < tarjetasCategoriaInicio.length; i++) {
-        console.log("hola"); 
-        tarjetasCategoriaInicio[i].value.onchange = (e) => {
-            console.log(tarjetasCategoriaInicio[i].id);
-            let id = tarjetasCategoriaInicio[i].dataset.id
-            console.log("hola2"); 
-            categoria(id)
-            tituloCategoria(id)
-            ocultarSeccion() 
-      }
-    }
-} */
   
 
 // FA crear tarjetas de categorias
+const envioGratisCategoria = document.querySelector(".envio-gratis-categoria")
+let categoria = (id, envioGratisCategoria) => {
+    let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
 
-let categoria = (id) => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`)
+    if (envioGratisCategoria === true) {
+        url = url + "&shipping_cost=free"
+    }
+
+    fetch(url)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results)
@@ -226,7 +212,9 @@ const buscarProducto = (producto, envioGratis) => {
     })  
 }
 
-//click boton busqueda
+//BOTON BUSQUEDA
+
+//POR ARTICULO
 
 const simboloBusqueda = document.querySelector(".busqueda-inicio")
 
@@ -238,6 +226,11 @@ formEncabezado.onsubmit = (e) => {
 simboloBusqueda.onclick = () => {
     buscarProducto(botonBuscar.value, envioGratis.checked)      
 }
+
+
+//POR CATEGORIA
+
+//const busquedaCategoria = document.querySelector(".busqueda-categoria")
 
 
 //-----------------TARJETA PRODUCTO---------------ok!
