@@ -22,24 +22,31 @@
                 <label for="envio-gratis">
                     <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
                 </label>       
-                           
+                       
                 
             </form>
             <h1 class="titulo-principal">SHOPLINE</h1>
         </div>
     </header>
-   
+    
     <main>
+        <!-- <div class="loader"><img src="https://acegif.com/wp-content/uploads/loading-95.gif" alt=""></div>
+         -->
         <div class="inicio ocultar">
            <section class = "seccion-tarjetas-categorias ">
-
+            <select class = "select-inicio" name="tarjetas-iniciales" >
+                
+            </select>
+            <i class="fas fa-search busqueda-categoria"></i>
            </section>
+           
         </div>
         
+
+        <!-- TARJETAS DE BUSQUEDA -->
         <div class="tarjetas-por-categoria ocultar">
             <section class="ocultar seccion-categorias">
-                <!--  -->
-               <div class="titulo-seccion-categoria">
+                <div class="titulo-seccion-categoria">
                     
                </div>
                <form class="form-titulo">
@@ -63,7 +70,8 @@
             </section>
                         
         </div> 
-
+        
+        <!-- TARJETA DETALLE PRODUCTO -->
         <div class="detalle-producto ocultar">
             
             
@@ -71,6 +79,7 @@
         
     </main>
 
+      
     <script src="index.js"></script>
 </body>
 </html>

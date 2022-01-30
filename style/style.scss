@@ -104,6 +104,11 @@ h1 {
     
 }
 
+.select-inicio {
+    @include botonDeBusqueda();
+    outline: none;
+}
+
 .fa-search {
     color: #a09e9e;
     font-size: 25px;
@@ -130,8 +135,10 @@ main {
 }
 
 .inicio {
-    width: 90%;    
-    margin: 10% 5%;
+    width: 90%;   
+    height: 100vh;
+    background-color: cadetblue; 
+    margin: 20% 5%;
     padding: $padding-secundario;
   }
 
@@ -144,10 +151,12 @@ main {
 
 .tarjetas-iniciales {
    width: 150px;
-   height: 150px;
+   height: 100px;
    margin: 5px;
    padding: $padding-principal; 
-   border: $borde-tarjetas;
+   border-radius: 10px;
+    box-shadow: 10px 12px 23px -19px $color-tipografia;
+    border: $borde-tarjetas;
 }
 .tarjetas-por-categoria{
     padding-top: 10%;
@@ -306,4 +315,13 @@ h2 {
         
   }
 
- 
+  .loader {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    
+  }

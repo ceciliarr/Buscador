@@ -5,6 +5,7 @@ const inicio = document.querySelector(".inicio")
 const formEncabezado = document.querySelector(".form-encabezado")
 const botonBuscar = document.querySelector("#buscador")
 
+const loader = document.querySelector(".loader")
 
 
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
@@ -37,40 +38,64 @@ let ocultarSeccion = () => {
 //Al cargar la pagina CATEGORIAS
 
 const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-categorias")
-
-fetch(`https://api.mercadolibre.com/sites/MLA/categories`)
+    fetch(`https://api.mercadolibre.com/sites/MLA/categories`)
     .then(res => res.json())
     .then((data) => {
     crearTarjetaBienvenida(data)
+    //loader.style.display = "none";
     console.log(data); 
-    clickEnTarjetaCategoria()  
+    //clickEnTarjetaCategoria()  
 })  
 
+//
+
+const selectInicio = document.querySelector(".select-inicio")
 const crearTarjetaBienvenida = (data) => {
-    const html = data.reduce ((acc, curr) => {
-        return acc + `
-            <div class = "tarjetas-iniciales" data-id="${curr.id}">
-                <h3>${curr.name}</h3>
-            </div>
+    
+    let acc = ""
+    for (let i = 0; i < data.length; i++) {
+        acc = acc + `
+            <option value="${data[i].id}" data-id="${data[i].id}" class = "tarjetas-iniciales"> ${data[i].name} </option>
         `
-    }, "")
-    seccionTarjetasCategorias.innerHTML = html
+    }
+    //console.log(acc);
+    selectInicio.innerHTML = acc
+
+    busquedaCategoria.onclick = () => {
+        const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")
+        let id = selectInicio.value
+        console.log(tarjetasCategoriaInicio);
+        categoria(id)
+        tituloCategoria(id)
+        ocultarSeccion()
+    }
 } 
 
-const clickEnTarjetaCategoria = () => {
+
+/* if (ordenar.value === "price_desc") {
+        url = url + "&sort=price_desc";
+    } */
+
+const busquedaCategoria = document.querySelector(".busqueda-categoria")
+
+
+
+/* const clickEnTarjetaCategoria = () => {
+    //loader.style.display = "block";
     const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")
+    
     for (let i = 0; i < tarjetasCategoriaInicio.length; i++) {
-        console.log("hola");
-        tarjetasCategoriaInicio[i].onclick = () => {
+        console.log("hola"); 
+        tarjetasCategoriaInicio[i].value.onchange = (e) => {
             console.log(tarjetasCategoriaInicio[i].id);
-            const id = tarjetasCategoriaInicio[i].dataset.id
-            console.log(id);
+            let id = tarjetasCategoriaInicio[i].dataset.id
+            console.log("hola2"); 
             categoria(id)
             tituloCategoria(id)
-            ocultarSeccion()
+            ocultarSeccion() 
       }
     }
-}
+} */
   
 
 // FA crear tarjetas de categorias
@@ -79,11 +104,13 @@ let categoria = (id) => {
     fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`)
     .then(res => res.json())
     .then((data) => {
-    crearTarjeta(data.results) 
+    crearTarjeta(data.results)
     ocultarSeccion()
     seccionCelulares.style.display = "block"
     tarjetasPorCategoria.style.display = "block"  
     console.log(data.results);
+    //loader.style.display = "none"; 
+
 })    
 }
 
@@ -102,16 +129,6 @@ const crearTitulo = (data) => {
     tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>`
 } 
 
-
-/* 
-const crearImagen = (id) => {
-    fetch(`https://api.mercadolibre.com/categories/${id}`)
-    .then(res => res.json())
-    .then((data) => {
-    return data.picture
-    
-})
-} */
 
 
 
