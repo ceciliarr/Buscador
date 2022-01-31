@@ -135,10 +135,11 @@ botonBuscarConFiltros.onclick = (e) => {
 
 //---------------VOLVER A PAGINA INICIAL------- ok!
 
-
+const imagenInicio = document.querySelector(".img-inicio")
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
     inicio.style.display = "flex"
+    imagenInicio.style.display = "block"
     formEncabezado.style.display = "block"
 }
 
