@@ -28,7 +28,7 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    header.style.height = "20%"
+    //header.style.height = "20%"
 }
                                                                      
 
