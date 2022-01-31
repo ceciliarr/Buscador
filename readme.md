@@ -7,7 +7,11 @@
 Este es mi 4to proyecto presentado en la cursada de Desarrollo FronteEnd en Ada
 
 <br />
+<<<<<<< HEAD
 <div style="text-align: center"><a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a></div>
+=======
+<a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a>
+>>>>>>> 925af8bac536fd91f24ff0a493eb5ab2a894f98c
 
 <br /> 
 
@@ -18,8 +22,12 @@ En este proyecto el objetivo era trabajar con una APi publica y poner en practic
 <br /> 
 
 
+<<<<<<< HEAD
 <div style="text-align: center"><a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a></div>
 
+=======
+<a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a>
+>>>>>>> 925af8bac536fd91f24ff0a493eb5ab2a894f98c
 
 <br /> 
 
@@ -37,8 +45,12 @@ Este trabajo esta realizadon con la API publica de [Mercado Libre](https://devel
 <br /> 
 
 
+<<<<<<< HEAD
 <div style="text-align: center"><a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a></div>
 
+=======
+<a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a>
+>>>>>>> 925af8bac536fd91f24ff0a493eb5ab2a894f98c
 
 <br /> 
 
@@ -56,8 +68,12 @@ Este trabajo esta realizadon con la API publica de [Mercado Libre](https://devel
 
 <br /> 
 
+<<<<<<< HEAD
 <div style="text-align: center"><a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a></div>
 
+=======
+<a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a>
+>>>>>>> 925af8bac536fd91f24ff0a493eb5ab2a894f98c
 
 
 <br /> 
