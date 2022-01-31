@@ -45,7 +45,6 @@ const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-cate
     .then((data) => {
     crearTarjetaBienvenida(data)
     loader.style.display = "none";
-    console.log(data); 
 })  
 
 
@@ -78,13 +77,11 @@ const buscarCategoria = () => {
 
 // FA crear tarjetas de categorias
 const envioGratisCategoria = document.querySelector("#envio-gratis-categoria")
-console.log(envioGratisCategoria.checked);
 let categoria = (id, envioGratisCategoria) => {
     let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
 
     if (envioGratisCategoria === true) {
         url = url + "&shipping_cost=free"
-        console.log("envio gratis");
     }
 
     fetch(url)
@@ -94,8 +91,7 @@ let categoria = (id, envioGratisCategoria) => {
     loader.style.display= "none"; //LOAD OKKKK
     ocultarSeccion()
     seccionCelulares.style.display = "block"
-    tarjetasPorCategoria.style.display = "block"  
-    console.log(data.results);
+    tarjetasPorCategoria.style.display = "block"
 })    
 }
 
@@ -263,7 +259,6 @@ const todasLasFotos = (data) => {
     
     const galeriaFotos = document.querySelector(".galeria-fotos");
     const html = data.reduce((acc, curr) => {
-        console.log(curr.url);
         return acc = acc + `
             <div class="galeria img-1">
             <img src="${curr.url}" class="img" data-id: "${curr.id}">

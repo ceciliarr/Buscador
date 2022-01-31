@@ -7,6 +7,7 @@
 Este es mi 4to proyecto presentado en la cursada de Desarrollo FronteEnd en Ada
 
 <br />
+
 <div style="text-align: center"><a href="https://www.gifsanimados.org/cat-lineas-562.htm"><img src="https://www.gifsanimados.org/data/media/562/linea-imagen-animada-0230.gif" alt="linea-imagen-animada-0230" /></a></div>
 
 <br /> 
