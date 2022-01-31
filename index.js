@@ -9,20 +9,19 @@ const formEncabezado = document.querySelector(".form-encabezado")
 const botonBuscar = document.querySelector("#buscador")
 const selectInicio = document.querySelector(".select-inicio")
 const busquedaCategoria = document.querySelector(".busqueda-categoria")
-
-
+const envioGratisCategoria = document.querySelector("#envio-gratis-categoria")
+const imagenInicio = document.querySelector(".img-inicio")
 const loader = document.querySelector(".loader")
 
-
+//tarjetas
 const tituloSeccionCategoria = document.querySelector(".titulo-seccion-categoria")
-
+const ordenar = document.querySelector("#ordenar")
+const botonBuscarConFiltros = document.querySelector(".buscar-filtros")
 const seccionTodasLasCategorias = document.querySelectorAll(".ocultar")
-
-
+const envioGratis = document.querySelector("#envio-gratis")
+const simboloBusqueda = document.querySelector(".busqueda-inicio")
 const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
-
-
 
 
 // FA: Funciones Auxiliares
@@ -55,10 +54,8 @@ const crearTarjetaBienvenida = (data) => {
             <option value="${data[i].id}" data-id="${data[i].id}" class = "tarjetas-iniciales"> ${data[i].name} </option>
         `
     }
-    
     selectInicio.innerHTML = acc
     buscarCategoria()
-    
 } 
 
 const buscarCategoria = () => {
@@ -76,19 +73,18 @@ const buscarCategoria = () => {
   
 
 // FA crear tarjetas de categorias
-const envioGratisCategoria = document.querySelector("#envio-gratis-categoria")
+
 let categoria = (id, envioGratisCategoria) => {
     let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
 
     if (envioGratisCategoria === true) {
         url = url + "&shipping_cost=free"
     }
-
     fetch(url)
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results)
-    loader.style.display= "none"; //LOAD OKKKK
+    loader.style.display= "none"; 
     ocultarSeccion()
     seccionCelulares.style.display = "block"
     tarjetasPorCategoria.style.display = "block"
@@ -112,11 +108,9 @@ const crearTitulo = (data) => {
 
 
 
+//-----------filtrar busqueda-----
 
-//-----------filtrar busqueda----- ok! 
 
-const ordenar = document.querySelector("#ordenar")
-const botonBuscarConFiltros = document.querySelector(".buscar-filtros")
 
 
 botonBuscarConFiltros.onclick = (e) => {
@@ -129,9 +123,9 @@ botonBuscarConFiltros.onclick = (e) => {
 }
 
 
-//---------------VOLVER A PAGINA INICIAL------- ok!
+//---------------VOLVER A PAGINA INICIAL------- 
 
-const imagenInicio = document.querySelector(".img-inicio")
+
 const volverAPaginaPrincipal = () => {
     ocultarSeccion()
     inicio.style.display = "flex"
@@ -142,7 +136,7 @@ const volverAPaginaPrincipal = () => {
 tituloPrincipal.onclick = volverAPaginaPrincipal
 
 
-// TARJETAS BUSQUEDA ok!
+// TARJETAS BUSQUEDA
 
 const crearTarjeta = (data) => {
     const tarjetasCategorias = document.querySelector(".seccion-tarjetas");
@@ -167,7 +161,7 @@ const crearTarjeta = (data) => {
 
 
 
-//------------BUSCADOR MAIN----------- ok!
+//------------BUSCADOR MAIN----------- 
 
 
 // titulo busqueda
@@ -178,7 +172,7 @@ const crearTituloProducto = (data) => {
 } 
 
 //filtrar y ordenar busqueda
-const envioGratis = document.querySelector("#envio-gratis")
+
 
 const buscarProducto = (producto, envioGratis) => {
     
@@ -211,9 +205,7 @@ const buscarProducto = (producto, envioGratis) => {
 
 //BOTON BUSQUEDA
 
-//POR ARTICULO
 
-const simboloBusqueda = document.querySelector(".busqueda-inicio")
 
 formEncabezado.onsubmit = (e) => {
     e.preventDefault();
@@ -226,8 +218,8 @@ simboloBusqueda.onclick = () => {
 
 
 
-//-----------------TARJETA PRODUCTO---------------ok!
-//https://api.mercadolibre.com/items/MLA1117381011
+//-----------------TARJETA PRODUCTO---------------
+
 const clickEnTarjeta = () => {
     
     const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
