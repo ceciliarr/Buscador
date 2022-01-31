@@ -4,12 +4,12 @@
     box-sizing: border-box;
     color: black;
     width: auto;
-    overflow: hidden;
+    
 }
 
 body{
     width: 100vw;
-    overflow: hidden;
+    
 }
 /* componentes */
 
@@ -140,9 +140,7 @@ h1 {
 
 main {
     padding: $espaciado-principal;
-    height: 100%;
-    overflow: hidden;
-    
+    height: 100%;    
 }
 
 .img-inicio{
@@ -197,6 +195,9 @@ main {
     
   }
 
+
+//TARJETAS
+
 .tarjetas-iniciales {
    width: 150px;
    height: 100px;
@@ -208,9 +209,10 @@ main {
 }
 .tarjetas-por-categoria{
     padding-top: 10%;
-    height: 100vh;
+    height: 100%;
     display: none;
     border: $borde-tarjetas;
+    overflow: scroll
 }
 
 .tarjetas-categoria {
@@ -221,6 +223,7 @@ main {
 .tarjetas-categoria:hover {
     transform: translateY(-5px)
 }
+
 
 /* seccion tarjeta */
 .tarjetas{

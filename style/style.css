@@ -4,12 +4,10 @@
   box-sizing: border-box;
   color: black;
   width: auto;
-  overflow: hidden;
 }
 
 body {
   width: 100vw;
-  overflow: hidden;
 }
 
 /* componentes */
@@ -96,7 +94,6 @@ h1 {
 main {
   padding: 10px;
   height: 100%;
-  overflow: hidden;
 }
 
 .img-inicio {
@@ -165,9 +162,10 @@ main {
 
 .tarjetas-por-categoria {
   padding-top: 10%;
-  height: 100vh;
+  height: 100%;
   display: none;
   border: 0.5px solid #E5E5E5;
+  overflow: scroll;
 }
 
 .tarjetas-categoria {
@@ -363,6 +361,11 @@ h2 {
     font-size: 20px;
   }
 }
+@media (max-width: 1000px) {
+  .titulo-seccion-categoria {
+    margin-top: 5%;
+  }
+}
 @media (max-width: 800px) {
   .img-inicio {
     margin-top: 25%;
@@ -537,11 +540,6 @@ h2 {
   .detalle-producto .seccion-detalle-producto .seccion-descripcion {
     width: 100%;
     height: 20%;
-  }
-}
-@media (max-width: 1000px) {
-  .titulo-seccion-categoria {
-    margin-top: 5%;
   }
 }
 
