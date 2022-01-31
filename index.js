@@ -24,7 +24,8 @@ const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
-// FA ocultar seccion 
+
+// Ocultar secciones
 
 let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
@@ -69,7 +70,7 @@ const buscarCategoria = () => {
 
   
 
-// FA crear tarjetas de categorias
+// Crear tarjetas de categorias
 
 let categoria = (id, envioGratisCategoria) => {
     let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
@@ -88,7 +89,7 @@ let categoria = (id, envioGratisCategoria) => {
 })    
 }
 
-// FA Crear titulo de categorias
+// Crear titulo de categorias
 
 let tituloCategoria = (id) => {
     fetch(`https://api.mercadolibre.com/categories/${id}`)
@@ -198,6 +199,7 @@ const buscarProducto = (producto, envioGratis) => {
     })  
 }
 
+
 //BOTON BUSQUEDA
 
 
@@ -243,7 +245,6 @@ const buscarProductoX  = (id) => {
 
 
 const todasLasFotos = (data) => {
-    
     const galeriaFotos = document.querySelector(".galeria-fotos");
     const html = data.reduce((acc, curr) => {
         return acc = acc + `
