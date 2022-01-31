@@ -24,9 +24,6 @@ const seccionCelulares = document.querySelector(".seccion-categorias")
 const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
-// FA: Funciones Auxiliares
-
-
 // FA ocultar seccion 
 
 let ocultarSeccion = () => {
@@ -109,8 +106,6 @@ const crearTitulo = (data) => {
 
 
 //-----------filtrar busqueda-----
-
-
 
 
 botonBuscarConFiltros.onclick = (e) => {
@@ -196,7 +191,7 @@ const buscarProducto = (producto, envioGratis) => {
         .then((data) => { 
         crearTarjeta(data.results)
         crearTituloProducto(producto)
-        loader.style.display= "none"; //LOAD OKKKKKKKKK
+        loader.style.display= "none"; 
         ocultarSeccion()
         tarjetasPorCategoria.style.display = "block"
         seccionCelulares.style.display = "block"
@@ -244,7 +239,7 @@ const buscarProductoX  = (id) => {
 } 
 
 
-//------------DESCRIPCION-----------ok!
+//------------DESCRIPCION-----------
 
 
 const todasLasFotos = (data) => {
