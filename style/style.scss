@@ -4,16 +4,16 @@
     box-sizing: border-box;
     color: black;
     width: auto;
-    overflow: hidden;
+    
 }
 
 body{
     width: 100vw;
-    overflow: hidden;
+    
 }
 /* componentes */
 
-$padding-principal: 10px;
+$espaciado-principal: 10px;
 $padding-secundario: 20px;
 
 
@@ -37,7 +37,7 @@ $borde-boton: $color-tipografia-secundario 1px solid;
 @mixin categoria() {
     width: 250px;
     height: 300px;
-    margin: 10px;
+    margin: $espaciado-principal;
     padding: $padding-secundario;
     border-radius: 10px;
     box-shadow: 10px 12px 23px -19px $color-tipografia;
@@ -65,13 +65,13 @@ $borde-boton: $color-tipografia-secundario 1px solid;
     font-family: $font-family;
     color: $color-tipografia;
     font-size: $font-size;
-    padding: $padding-principal;
+    padding: $espaciado-principal;
 }
 
 /* ---------- HEADER ---------- */
 
 header {
-    padding: $padding-principal;
+    padding: $espaciado-principal;
     position: fixed;
     width: 100vw;
     background-color: $color-fondo;
@@ -100,7 +100,7 @@ h1 {
         @include botonDeBusqueda($font-size: 16px);
         border: none;
         position: relative;
-        top: 10px
+        top: $espaciado-principal;
     }
 }
 
@@ -139,10 +139,8 @@ h1 {
   /* -----------MAIN----------- */
 
 main {
-    padding: $padding-principal;
-    height: 100%;
-    overflow: hidden;
-    
+    padding: $espaciado-principal;
+    height: 100%;    
 }
 
 .img-inicio{
@@ -157,9 +155,6 @@ main {
 .inicio {
     width: 50vw;   
     height: 100vh;
-    //background-image: url(https://muchosnegociosrentables.com/wp-content/uploads/2020/05/monta-tu-propia-tienda-online.jpg);
-    //background-size: 100%;
-    //background-repeat: no-repeat; */
     position: absolute;
     margin: 0% 5%;
     padding: $padding-secundario;
@@ -190,7 +185,7 @@ main {
             @include botonDeBusqueda($font-size: 16px);
             border: none;
             position: relative;
-            top: 10px
+            top: $espaciado-principal;
         }
         div{
             display: flex;
@@ -200,20 +195,24 @@ main {
     
   }
 
+
+//TARJETAS
+
 .tarjetas-iniciales {
    width: 150px;
    height: 100px;
    margin: 5px;
-   padding: $padding-principal; 
+   padding: $espaciado-principal; 
    border-radius: 10px;
-    box-shadow: 10px 12px 23px -19px $color-tipografia;
-    border: $borde-tarjetas;
+   box-shadow: 10px 12px 23px -19px $color-tipografia;
+   border: $borde-tarjetas;
 }
 .tarjetas-por-categoria{
     padding-top: 10%;
-    height: 100vh;
+    height: 100%;
     display: none;
     border: $borde-tarjetas;
+    overflow: scroll
 }
 
 .tarjetas-categoria {
@@ -225,26 +224,21 @@ main {
     transform: translateY(-5px)
 }
 
+
 /* seccion tarjeta */
 .tarjetas{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
-
-
-
 h2 {
-    
     @include botonDeBusqueda($font-size: 40px, $font-family: $tipografia-terciaria);
     border: none;
     letter-spacing: 5px;
 }
 
-.form-titulo {
-    
+.form-titulo { 
     margin: 3%;
     display: flex;
     justify-content: center;
@@ -268,7 +262,6 @@ h2 {
         font-size: 26px;
         cursor: pointer;
     }
-
 }
 
 .img-tarjetas{
@@ -280,6 +273,7 @@ h2 {
 
 
 /* ----------DETALLE PRODUCTO----------- */
+
 .detalle-producto {
     padding-top: 15%;
     height: 90vh;
@@ -294,7 +288,7 @@ h2 {
   
 .galeria-fotos {
     width: 15%;
-    margin: 10px;
+    margin: $espaciado-principal;
     height: 65vh;
     flex-wrap: wrap;
     display: flex;
@@ -302,12 +296,12 @@ h2 {
     overflow: scroll;
     justify-content: center;
     
-  }
+}
   
   .galeria {
     border: $borde-tarjetas; 
     margin: 10%;
-    padding: $padding-principal;
+    padding: $espaciado-principal;
     width: 150px;
     height: 150px;
     justify-content: center;
@@ -327,7 +321,7 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 50%;
-    margin: 10px;
+    margin: $espaciado-principal;
     height: 65vh;
     display: flex;
   }
@@ -339,7 +333,7 @@ h2 {
     background-color: #F5F5F5;
     border-radius: 10px;
     width: 35%;
-    margin: 10px;
+    margin: $espaciado-principal;
     height: 65vh;
         h3 {
             text-align: center;
@@ -376,13 +370,12 @@ h2 {
     height: 100vh;
     z-index: 0;
     
-  }
+}
 
   
 
-  ///////////////RESPONSIVE
+  ///////////////RESPONSIVE////////////////////////
 
-////inicio
 
 @media (max-width:1900px){
     .inicio, .img-inicio{
@@ -392,6 +385,7 @@ h2 {
         margin: 0;
     }
 }
+
 @media (max-width:1100px){
     .inicio, .img-inicio{
         margin-top: 15%;        
@@ -407,6 +401,13 @@ h2 {
         font-size: 20px
     }
 }
+
+@media (max-width:1000px){
+    .titulo-seccion-categoria{
+        margin-top: 5%;
+    }
+}
+
 @media (max-width:800px){
     .img-inicio{
         margin-top: 25%;
@@ -496,12 +497,14 @@ h2 {
     }
     
 }
+
 @media (max-width:600px){
     .img-1{
         width: 50px;
         height: 50px;
     }
 }
+
 @media (max-width:550px){
     .img-inicio{
         margin-top: 50%;
@@ -540,7 +543,7 @@ h2 {
         }
         label{
            
-            padding: 10px;
+            padding: $espaciado-principal;
             select{
                 
                 padding: 5px;
@@ -584,12 +587,5 @@ h2 {
 }
 
 
-// Tarjetas 
-@media (max-width:1000px){
-    .titulo-seccion-categoria{
-        margin-top: 5%;
-    }
-}
 
 
-// Tarjetas Detalle
