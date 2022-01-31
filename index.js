@@ -251,7 +251,7 @@ const buscarProductoX  = (id) => {
     .then(res => res.json())
     .then((data) => { 
     crearTarjetaDetalleProducto(data)
-    
+
     })
 } 
 
@@ -287,7 +287,6 @@ const todasLasFotos = (data) => {
 
 
 const crearTarjetaDetalleProducto = (data) => {
-    
     const detalleProducto = document.querySelector(".detalle-producto");
     const titulo = data.title.toUpperCase()
     const html = `
