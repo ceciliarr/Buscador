@@ -1,9 +1,15 @@
 //HEADER
 const header = document.querySelector(".header")
 const tituloPrincipal = document.querySelector(".titulo-principal")
+
+//MAIN
+//inicio
 const inicio = document.querySelector(".inicio")
 const formEncabezado = document.querySelector(".form-encabezado")
 const botonBuscar = document.querySelector("#buscador")
+const selectInicio = document.querySelector(".select-inicio")
+const busquedaCategoria = document.querySelector(".busqueda-categoria")
+
 
 const loader = document.querySelector(".loader")
 
@@ -28,12 +34,8 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    //header.style.height = "20%"
 }
                                                                      
-
-
-//https://api.mercadolibre.com/sites/MLA/categories
 
 //Al cargar la pagina CATEGORIAS
 
@@ -44,14 +46,10 @@ const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-cate
     crearTarjetaBienvenida(data)
     //loader.style.display = "none";
     console.log(data); 
-    //clickEnTarjetaCategoria()  
 })  
 
-//
 
-const selectInicio = document.querySelector(".select-inicio")
 const crearTarjetaBienvenida = (data) => {
-    
     let acc = "<option> Busqueda por Categoria </option>"
     for (let i = 0; i < data.length; i++) {
         acc = acc + `
@@ -63,13 +61,12 @@ const crearTarjetaBienvenida = (data) => {
     buscarCategoria()
     
 } 
-const busquedaCategoria = document.querySelector(".busqueda-categoria")
 
 const buscarCategoria = () => {
     busquedaCategoria.onclick = () => {
         const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")    
         let id = selectInicio.value
-        categoria(id)
+        categoria(id,envioGratisCategoria.checked)
         tituloCategoria(id)
         ocultarSeccion()
     }
@@ -79,12 +76,14 @@ const buscarCategoria = () => {
   
 
 // FA crear tarjetas de categorias
-const envioGratisCategoria = document.querySelector(".envio-gratis-categoria")
+const envioGratisCategoria = document.querySelector("#envio-gratis-categoria")
+console.log(envioGratisCategoria.checked);
 let categoria = (id, envioGratisCategoria) => {
     let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
 
     if (envioGratisCategoria === true) {
         url = url + "&shipping_cost=free"
+        console.log("envio gratis");
     }
 
     fetch(url)
