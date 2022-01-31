@@ -28,7 +28,6 @@ let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
     }
-    //header.style.height = "20%"
 }
                                                                      
 
@@ -42,7 +41,7 @@ const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-cate
     .then(res => res.json())
     .then((data) => {
     crearTarjetaBienvenida(data)
-    //loader.style.display = "none";
+    loader.style.display = "none";
     console.log(data); 
     //clickEnTarjetaCategoria()  
 })  
@@ -67,6 +66,7 @@ const busquedaCategoria = document.querySelector(".busqueda-categoria")
 
 const buscarCategoria = () => {
     busquedaCategoria.onclick = () => {
+        loader.style.display= "block";
         const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")    
         let id = selectInicio.value
         categoria(id)
@@ -91,12 +91,11 @@ let categoria = (id, envioGratisCategoria) => {
     .then(res => res.json())
     .then((data) => {
     crearTarjeta(data.results)
+    loader.style.display= "none"; //LOAD OKKKK
     ocultarSeccion()
     seccionCelulares.style.display = "block"
     tarjetasPorCategoria.style.display = "block"  
     console.log(data.results);
-    //loader.style.display = "none"; 
-
 })    
 }
 
@@ -125,6 +124,7 @@ const botonBuscarConFiltros = document.querySelector(".buscar-filtros")
 
 
 botonBuscarConFiltros.onclick = (e) => {
+    loader.style.display= "block";
     const buscadorTitulo = document.querySelector("#buscador-titulo")
     const envioGratis2 = document.querySelector("#envio-gratis2")
     tituloABuscar = buscadorTitulo.innerHTML;
@@ -204,9 +204,9 @@ const buscarProducto = (producto, envioGratis) => {
     fetch(url)
         .then(res => res.json())
         .then((data) => { 
-        console.log(data);  
         crearTarjeta(data.results)
         crearTituloProducto(producto)
+        loader.style.display= "none"; //LOAD OKKKKKKKKK
         ocultarSeccion()
         tarjetasPorCategoria.style.display = "block"
         seccionCelulares.style.display = "block"
@@ -229,17 +229,15 @@ simboloBusqueda.onclick = () => {
 }
 
 
-//POR CATEGORIA
-
-//const busquedaCategoria = document.querySelector(".busqueda-categoria")
-
 
 //-----------------TARJETA PRODUCTO---------------ok!
 //https://api.mercadolibre.com/items/MLA1117381011
 const clickEnTarjeta = () => {
+    
     const tarjetasCategoria2 = document.querySelectorAll(".tarjetas-categoria")
     for (let i = 0; i < tarjetasCategoria2.length; i++) {
         tarjetasCategoria2[i].onclick = () => {
+            loader.style.display= "block";
             const id = tarjetasCategoria2[i].dataset.id
             buscarProductoX(id)
             ocultarSeccion()
@@ -251,9 +249,9 @@ const clickEnTarjeta = () => {
 const buscarProductoX  = (id) => {
     fetch(`https://api.mercadolibre.com/items/${id}`)
     .then(res => res.json())
-    .then((data) => {
-    console.log(data);  
+    .then((data) => { 
     crearTarjetaDetalleProducto(data)
+    
     })
 } 
 
@@ -262,6 +260,7 @@ const buscarProductoX  = (id) => {
 
 
 const todasLasFotos = (data) => {
+    
     const galeriaFotos = document.querySelector(".galeria-fotos");
     const html = data.reduce((acc, curr) => {
         console.log(curr.url);
@@ -273,6 +272,8 @@ const todasLasFotos = (data) => {
     }, "")
     
     galeriaFotos.innerHTML = html
+    
+
     const fotosDeGaleria = document.querySelectorAll(".galeria")
     const imagenAgrandada = document.querySelector(".foto")
     for (let i = 0; i < fotosDeGaleria.length; i++) {
@@ -286,6 +287,7 @@ const todasLasFotos = (data) => {
 
 
 const crearTarjetaDetalleProducto = (data) => {
+    
     const detalleProducto = document.querySelector(".detalle-producto");
     const titulo = data.title.toUpperCase()
     const html = `
@@ -305,6 +307,7 @@ const crearTarjetaDetalleProducto = (data) => {
         </div>     
         `
     detalleProducto.style.display = "block"
+    loader.style.display= "none";
     detalleProducto.innerHTML = html
     todasLasFotos(data.pictures)
 }
