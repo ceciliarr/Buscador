@@ -1,4 +1,5 @@
 //HEADER
+// nunca usas esta variable
 const header = document.querySelector(".header")
 const tituloPrincipal = document.querySelector(".titulo-principal")
 
@@ -26,7 +27,7 @@ const tarjetasPorCategoria = document.querySelector(".tarjetas-por-categoria")
 
 
 // Ocultar secciones
-
+// las funciones siempre se definen con const (no van a cambiar su valor)
 let ocultarSeccion = () => {
     for (let i = 0; i < seccionTodasLasCategorias.length; i++) {
         seccionTodasLasCategorias[i].style.display = "none";
@@ -35,8 +36,11 @@ let ocultarSeccion = () => {
                                                                      
 
 //Al cargar la pagina CATEGORIAS
-
+// nunca usas esta variable
 const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-categorias")
+
+// todo el codigo que se ejecuta apenas carga la pagina va a estar idealmente al final de todo
+// asi es mas facil seguir el flujo de ejecucion
     fetch(`https://api.mercadolibre.com/sites/MLA/categories`)
     .then(res => res.json())
     .then((data) => {
@@ -46,6 +50,18 @@ const seccionTarjetasCategorias = document.querySelector(".seccion-tarjetas-cate
 
 
 const crearTarjetaBienvenida = (data) => {
+    // podes hacer esto con un reduce
+    // return data.reduce((acc, curr) => acc + 
+    //         `<option 
+    //             value="${data[i].id}" 
+    //             data-id="${data[i].id}" 
+    //             class="tarjetas-iniciales"> 
+    //                 ${data[i].name} 
+    //         </option>`, 
+    //         "<option> Busqueda por Categoria </option>"
+    //         )
+
+
     let acc = "<option> Busqueda por Categoria </option>"
     for (let i = 0; i < data.length; i++) {
         acc = acc + `
@@ -59,7 +75,9 @@ const crearTarjetaBienvenida = (data) => {
 const buscarCategoria = () => {
     busquedaCategoria.onclick = () => {
         loader.style.display= "block";
+        // nunca usas esta variable
         const tarjetasCategoriaInicio = document.querySelectorAll(".tarjetas-iniciales")    
+        // deberia ser un const ya que nunca cambia de valor
         let id = selectInicio.value
         categoria(id,envioGratisCategoria.checked)
         tituloCategoria(id)
@@ -75,6 +93,8 @@ const buscarCategoria = () => {
 let categoria = (id, envioGratisCategoria) => {
     let url = `https://api.mercadolibre.com/sites/MLA/search?category=${id}&limit=20`
 
+    // tambien podes decir
+    // if (envioGratisCategoria) {
     if (envioGratisCategoria === true) {
         url = url + "&shipping_cost=free"
     }
@@ -86,11 +106,12 @@ let categoria = (id, envioGratisCategoria) => {
     ocultarSeccion()
     seccionCelulares.style.display = "block"
     tarjetasPorCategoria.style.display = "block"
+    // ojo con el tabulado en las llaves de cierre
 })    
 }
 
 // Crear titulo de categorias
-
+// const 
 let tituloCategoria = (id) => {
     fetch(`https://api.mercadolibre.com/categories/${id}`)
     .then(res => res.json())
@@ -113,6 +134,7 @@ botonBuscarConFiltros.onclick = (e) => {
     loader.style.display= "block";
     const buscadorTitulo = document.querySelector("#buscador-titulo")
     const envioGratis2 = document.querySelector("#envio-gratis2")
+    // falta declarar esto con un const
     tituloABuscar = buscadorTitulo.innerHTML;
     e.preventDefault()
     buscarProducto(tituloABuscar, envioGratis2.checked)   
@@ -123,6 +145,7 @@ botonBuscarConFiltros.onclick = (e) => {
 
 
 const volverAPaginaPrincipal = () => {
+    // excelente
     ocultarSeccion()
     inicio.style.display = "flex"
     imagenInicio.style.display = "block"
@@ -138,6 +161,7 @@ const crearTarjeta = (data) => {
     const tarjetasCategorias = document.querySelector(".seccion-tarjetas");
     
     const html = data.reduce ((acc, curr) => {
+        // perfecto
         const titulo = curr.title.slice(0,40)
         return acc + `
             <article class = "tarjetas-categoria" data-id="${curr.id}">
@@ -161,7 +185,7 @@ const crearTarjeta = (data) => {
 
 
 // titulo busqueda
-
+// deberias reusar la funcion crearTitulo, ya que son casi iguales
 const crearTituloProducto = (data) => {
     const titulo = data.toUpperCase()
     tituloSeccionCategoria.innerHTML = `<h2 id="buscador-titulo">${titulo}</h2>` 
@@ -245,6 +269,7 @@ const buscarProductoX  = (id) => {
 
 
 const todasLasFotos = (data) => {
+    // esto te quedo hermoosooooo!
     const galeriaFotos = document.querySelector(".galeria-fotos");
     const html = data.reduce((acc, curr) => {
         return acc = acc + `
@@ -272,6 +297,9 @@ const todasLasFotos = (data) => {
 const crearTarjetaDetalleProducto = (data) => {
     const detalleProducto = document.querySelector(".detalle-producto");
     const titulo = data.title.toUpperCase()
+    // no es necesario comparar contra el true, usa 
+    // data.accepts_mercadopago ?
+    // data.shipping.free_shipping ?
     const html = `
         <div class="seccion-detalle-producto">
             <div class="galeria-fotos"></div>

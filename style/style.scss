@@ -6,7 +6,7 @@
     width: auto;
     
 }
-
+// innecesario, esto es asi por defecto
 body{
     width: 100vw;
     
@@ -33,7 +33,7 @@ $tipografia-tarjetas: 'Exo', sans-serif;
 $borde-tarjetas:  0.5px solid $color-fondo-secundario;
 $borde-boton: $color-tipografia-secundario 1px solid;
 
-
+// Excelentes los mixin!!
 @mixin categoria() {
     width: 250px;
     height: 300px;
@@ -170,7 +170,7 @@ main {
     }
 }
 
-
+// muy buen uso del anidado!!!
   .seccion-tarjetas-categorias {
     display: flex;
     flex-wrap: wrap;
