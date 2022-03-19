@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador</title>
     <link rel="stylesheet" href="style/style.css">
+    <!-- Idealmente el favicon debe ser de tipo .ico (es mucho mas pequeño) -->
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <script src="https://kit.fontawesome.com/b213fdae7b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&family=Exo:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <!-- No son necesarios los dos primeros imports, aca tenes todas las fonts que necesitas -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,600&family=Raleway:wght@100&family=Roboto:wght@100&family=Unna&family=Work+Sans:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,24 +23,32 @@
         
     </header>
     <main>
+        <!-- No dejes los alt vacios! Esta no es una imagen decorativa -->
         <div class="loader"><img src="https://acegif.com/wp-content/uploads/loading-95.gif" alt=""></div>
         <div class="inicio ocultar">
             <form class="form-encabezado ocultar">
-                <div>                    
+                <div>               
+                    <!-- Si no hay un label, debe haber un aria label para el lector de pantalla      -->
                     <input type="text" id="buscador" placeholder="Busqueda por articulo">
                     <div>
                         <label for="envio-gratis">
                             <input type="checkbox" name="envio-gratis" id="envio-gratis">  ENVIO GRATIS 
                         </label>
+                        <!-- Recorda que el lector de pantalla ignora los iconos: como sabe el 
+                        lector de pantalla que cliqueando aqui se busca? esto deberia ser un boton
+                    con un aria label -->
                         <i class="fas fa-search busqueda-inicio"></i>
                     </div>   
                 </div>
+                <!-- No dejes espacios antes y despues de los = -->
                 <div class = "seccion-tarjetas-categorias ">
+                    <!-- Aria label! -->
                     <select class = "select-inicio" name="tarjetas-iniciales"></select>
                     <div>
                         <label for="envio-gratis-categoria">
                             <input type="checkbox" name="envio-gratis-categoria" id="envio-gratis-categoria">  ENVIO GRATIS 
                         </label>
+                        <!-- boton con aria label  -->
                         <i class="fas fa-search busqueda-categoria"></i>
                     </div>
                 </div>
@@ -66,6 +76,7 @@
                     </label>
                     </div>
                     <div>
+                        <!-- mismo problema aqui -->
                         <i class="fas fa-search buscar-filtros"></i>
                     </div>       
                 </form>
